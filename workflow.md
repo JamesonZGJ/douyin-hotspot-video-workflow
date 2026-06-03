@@ -1,0 +1,70 @@
+# 热点发布会转抖音视频工作流
+
+## 1. 核事实
+
+- 优先读官方博客、官方 YouTube、发行商官网。
+- 把游戏名、发售日、延期、角色、视频源写进 `data/facts.json`。
+- 影之刃零这类影响排期的大消息必须放开头，不塞到“补充几条”里。
+
+## 2. 下载官方片段
+
+先装工具：
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -U yt-dlp bgutil-ytdlp-pot-provider edge-tts
+git clone --single-branch --branch 1.3.1 https://github.com/Brainicism/bgutil-ytdlp-pot-provider.git .\tools\bgutil-ytdlp-pot-provider
+cd .\tools\bgutil-ytdlp-pot-provider\server
+npm ci
+npx tsc
+cd ..\..\..
+```
+
+下载片段：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\tools\download-official-clips.ps1
+```
+
+这个 GitHub provider 能处理 YouTube 的 PO Token / 机器人校验。若以后遇到必须登录的年龄门，再加 `--cookies-from-browser edge` 或 `--cookies-from-browser chrome`，但这会读取浏览器 cookies，需要你明确同意。
+
+## 3. 生成旁白
+
+当前使用中文男声：
+
+```powershell
+.\.venv\Scripts\edge-tts.exe --file .\scripts\narration.zh.txt --voice zh-CN-YunjianNeural --rate +32% --pitch +2Hz --write-media .\assets\narration-final.mp3 --write-subtitles .\assets\narration-final.vtt
+```
+
+如果要用你的声音：
+
+- 直接完整读一遍 `scripts/narration.zh.txt`。
+- 环境尽量安静，离麦克风 15 到 25 厘米。
+- 语气按“游戏快报”来：句尾别拖，重点词稍微加力。
+- 输出 WAV 或 MP3，放到 `assets/user-voice/narration-user.wav`。
+- 我把它替换成 `assets/narration-final.mp3` 后重新渲染。
+
+## 4. 制作视频
+
+- `index.html` 是 1080x1920 竖屏主工程。
+- 游戏画面固定放在中部 3:2 画面框，避免竖屏强裁导致看不清。
+- 动态片段优先使用 1080p，全部 `muted playsinline`。
+- 每段画面时长跟着旁白走，旁白没讲完就不能切到下一款游戏。
+- 旁白音轨只用 `assets/narration-final.mp3`。
+- 字幕目前是手工同步，避免 Whisper 不可用时卡住。
+
+## 5. 检查与渲染
+
+```powershell
+npm run lint
+npm run validate
+npm run inspect -- --samples 12
+npm run render -- --fps 30 --quality high --output renders/stateofplay-douyin.mp4
+```
+
+验收标准：
+
+- 视频 55 到 65 秒。
+- 影之刃零延期在前 10 秒讲清楚。
+- 每个重点游戏都有官方片段。
+- 旁白为流利男声。
+- lint 通过，inspect 无布局问题。

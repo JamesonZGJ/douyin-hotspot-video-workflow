@@ -1,0 +1,110 @@
+{
+  "event": {
+    "title": "PlayStation State of Play June 2026",
+    "aired": "2026-06-02 PT / 2026-06-03 Asia",
+    "sources": [
+      "https://blog.playstation.com/2026/05/20/state-of-play-returns-tuesday-june-2/",
+      "https://blog.ja.playstation.com/2026/06/03/20260603-sop-recap-o/"
+    ]
+  },
+  "items": [
+    {
+      "name": "Marvel's Wolverine",
+      "beat": "新实机、Jean Grey、Reavers、Bolivar Trask",
+      "release": "2026-09-15",
+      "source": "https://blog.playstation.com/2026/06/02/marvels-wolverine-new-gameplay-story-details-from-state-of-play/",
+      "asset": "assets/hd/clip-wolverine-main.mp4",
+      "clip_source": "https://www.youtube.com/watch?v=OiBo_NgYI5Q"
+    },
+    {
+      "name": "God of War Laufey",
+      "beat": "Faye 在 Everywhen 醒来，为保护 Kratos 和 Atreus 而战",
+      "release": "TBA",
+      "source": "https://blog.playstation.com/2026/06/02/first-look-at-god-of-war-laufey/",
+      "asset": "assets/god-of-war-laufey-final.jpg",
+      "clip_source": "https://www.youtube.com/watch?v=HLMX2w3cwuE"
+    },
+    {
+      "name": "Until Dawn 2",
+      "beat": "独立新故事，ghost hunters 主角团",
+      "release": "2027",
+      "source": "https://blog.playstation.com/2026/06/02/until-dawn-2-is-coming-to-ps5-in-2027/",
+      "asset": "assets/until-dawn-2.jpg",
+      "clip_source": "https://www.youtube.com/watch?v=QpVZ9OvRLZI"
+    },
+    {
+      "name": "Silent Hill: Townfall",
+      "beat": "Simon 主线，新角色 Zoe",
+      "release": "2026-09-24",
+      "source": "https://blog.playstation.com/2026/06/02/silent-hill-townfall-launches-september-24-on-ps5/",
+      "asset": "assets/hd/clip-silent-hill-townfall.mp4",
+      "clip_source": "https://www.youtube.com/watch?v=eXLfSEipn7I"
+    },
+    {
+      "name": "Control Resonant",
+      "beat": "Dylan 是唯一可玩主角",
+      "release": "2026-09-24",
+      "source": "https://blog.playstation.com/2026/06/02/control-resonant-launches-september-24-on-ps5/",
+      "asset": "assets/control-resonant.jpg",
+      "clip_source": "https://www.youtube.com/watch?v=TAzxTMaA6j4"
+    },
+    {
+      "name": "Onimusha: Way of the Sword",
+      "beat": "Miyamoto Musashi 主角，demo 当天上线",
+      "release": "2026-09-25",
+      "source": "https://blog.playstation.com/2026/06/02/onimusha-way-of-the-sword-out-september-25-on-ps5-demo-out-today/",
+      "asset": "assets/hd/clip-onimusha.mp4",
+      "clip_source": "https://www.youtube.com/watch?v=LNq35HHUtNc"
+    },
+    {
+      "name": "Ace Combat 8: Wings of Theve",
+      "beat": "新作定档",
+      "release": "2026-10-02",
+      "source": "https://blog.playstation.com/2026/06/02/ace-combat-8-wings-of-theve-launches-globally-october-2-on-ps5/",
+      "asset": "assets/ace-combat-8.jpg",
+      "clip_source": "https://www.youtube.com/watch?v=cW6zBuO7sb4"
+    },
+    {
+      "name": "Rayman Legends Retold",
+      "beat": "3D 重构 / reimagining，不是单纯复刻",
+      "release": "2026-10-01",
+      "source": "https://blog.playstation.com/2026/06/02/rayman-legends-retold-out-october-1-on-ps5/",
+      "asset": "assets/hd/clip-rayman-retold.mp4",
+      "clip_source": "https://www.youtube.com/watch?v=TKfG9hiueak"
+    },
+    {
+      "name": "Marvel Tokon: Fighting Souls",
+      "beat": "Knights of Doom 队伍公布，Magneto、Green Goblin、Carnage 加入",
+      "release": "TBA",
+      "source": "https://blog.playstation.com/2026/06/02/magneto-green-goblin-carnage-announced-for-marvel-tokon-fighting-souls/",
+      "asset": "assets/hd/clip-marvel-tokon.mp4",
+      "clip_source": "https://www.youtube.com/watch?v=cen2Lbmmo_Q"
+    },
+    {
+      "name": "Marathon Season 2",
+      "beat": "Night Marsh、Sentinel、Cradle、Open Play Week",
+      "release": "2026-06-02",
+      "source": "https://blog.playstation.com/2026/05/27/marathon-season-2-arrives-june-2/",
+      "asset": "assets/hd/clip-marathon-s2.mp4",
+      "clip_source": "https://www.youtube.com/watch?v=-WVhTcByDyY"
+    },
+    {
+      "name": "Dune: Awakening",
+      "beat": "PS5 版登场，新增单人模式和新剧情章节",
+      "release": "2026-09-22",
+      "source": "https://duneawakening.com/",
+      "asset": "assets/hd/clip-dune-awakening.mp4",
+      "clip_source": "https://www.youtube.com/watch?v=iCKflvFn4p4"
+    },
+    {
+      "name": "Phantom Blade Zero",
+      "beat": "从 2026-09-09 延期到 2026-10-29，夏末还有 15-20 分钟专场",
+      "release": "2026-10-29",
+      "delayed_from": "2026-09-09",
+      "source": "https://blog.ja.playstation.com/2026/06/03/20260603-sop-recap-o/",
+      "asset": "assets/hd/clip-phantom-blade-zero-main.mp4",
+      "clip_source": "https://www.youtube.com/watch?v=ZX8mHo0aSbc"
+    }
+  ],
+  "asset_note": "Official YouTube clips were downloaded at up to 1080p with yt-dlp plus the GitHub bgutil PO Token provider. Clips are muted in the final render. Age-gated or logo-heavy segments were replaced with official stills instead of using black/title-card footage."
+}

@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>State of Play Douyin Brief</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: #07090f;
+        font-family: "Noto Sans Japanese", sans-serif;
+      }
+
+      #main-composition {
+        position: relative;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: #07090f;
+        color: #f2f5ff;
+      }
+
+      .media {
+        position: absolute;
+        left: 48px;
+        top: 430px;
+        width: 984px;
+        height: 656px;
+        object-fit: contain;
+        background: #020307;
+        border: 1px solid rgba(242, 245, 255, 0.24);
+        border-radius: 8px;
+        box-shadow: 0 26px 90px rgba(0, 0, 0, 0.48);
+        filter: saturate(1.08) contrast(1.06) brightness(1.02);
+        transform: none;
+        z-index: 1;
+      }
+
+      .vignette {
+        position: absolute;
+        inset: 0;
+        z-index: 3;
+        pointer-events: none;
+        background:
+          linear-gradient(180deg, rgba(7, 9, 15, 0) 0%, rgba(7, 9, 15, 0.04) 42%, rgba(7, 9, 15, 0.9) 64%, #07090f 100%),
+          radial-gradient(circle at 82% 18%, rgba(47, 107, 255, 0.12), rgba(47, 107, 255, 0) 34%),
+          radial-gradient(circle at 10% 74%, rgba(255, 59, 71, 0.16), rgba(255, 59, 71, 0) 32%);
+      }
+
+      .grain {
+        position: absolute;
+        inset: 0;
+        z-index: 4;
+        opacity: 0.07;
+        pointer-events: none;
+        background-image:
+          linear-gradient(rgba(242, 245, 255, 0.045) 1px, rgba(242, 245, 255, 0) 1px),
+          linear-gradient(90deg, rgba(242, 245, 255, 0.035) 1px, rgba(242, 245, 255, 0) 1px);
+        background-size: 48px 48px;
+      }
+
+      .scene {
+        position: absolute;
+        left: 48px;
+        right: 48px;
+        bottom: 304px;
+        z-index: 12;
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .scene.active {
+        opacity: 1;
+      }
+
+      .hud {
+        position: absolute;
+        top: 52px;
+        left: 48px;
+        right: 48px;
+        z-index: 14;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 25px;
+        color: #f2f5ff;
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        height: 54px;
+        padding: 0 18px;
+        border: 1px solid rgba(242, 245, 255, 0.26);
+        background: rgba(7, 9, 15, 0.94);
+        font-weight: 800;
+      }
+
+      .tag.hot {
+        border-color: #ff3b47;
+        color: #f2f5ff;
+      }
+
+      .eyebrow {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 28px;
+        color: #d8b45b;
+        font-weight: 800;
+        font-variant-numeric: tabular-nums;
+      }
+
+      h1,
+      h2 {
+        max-width: 940px;
+        margin: 0;
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 128px;
+        line-height: 0.92;
+        letter-spacing: 0.01em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        font-size: 148px;
+      }
+
+      .summary {
+        max-width: 910px;
+        margin: 0;
+        color: #f2f5ff;
+        font-size: 41px;
+        line-height: 1.22;
+        font-weight: 800;
+        text-shadow: 0 4px 28px rgba(0, 0, 0, 0.68);
+      }
+
+      .summary em,
+      .flash {
+        color: #ff3b47;
+        font-style: normal;
+      }
+
+      .caption-wrap {
+        position: absolute;
+        left: 54px;
+        right: 54px;
+        bottom: 112px;
+        z-index: 30;
+        min-height: 142px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+      }
+
+      .caption {
+        position: absolute;
+        max-width: 900px;
+        padding: 20px 28px;
+        color: #f2f5ff;
+        background: rgba(7, 9, 15, 0.82);
+        border: 1px solid rgba(242, 245, 255, 0.28);
+        box-shadow: 0 18px 60px rgba(0, 0, 0, 0.36);
+        font-size: 46px;
+        line-height: 1.18;
+        font-weight: 900;
+        text-align: center;
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .caption em {
+        color: #ff3b47;
+        font-style: normal;
+      }
+
+      .wipe,
+      .wipe-red {
+        position: absolute;
+        inset: 0;
+        z-index: 24;
+        pointer-events: none;
+        transform: translateX(-110%);
+      }
+
+      .wipe {
+        background: #f2f5ff;
+      }
+
+      .wipe-red {
+        z-index: 25;
+        background: #ff3b47;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div
+      id="main-composition"
+      data-composition-id="stateofplay-douyin"
+      data-width="1080"
+      data-height="1920"
+      data-start="0"
+      data-duration="61.2"
+    >
+      <video id="v-pbz-a" class="clip media" data-start="0" data-duration="7.8" data-track-index="0" data-media-start="4.2" src="assets/hd/clip-phantom-blade-zero-main.mp4" muted playsinline></video>
+      <img id="v-pbz-b" class="clip media" data-start="7.8" data-duration="6.7" data-track-index="0" src="assets/phantom-blade-zero-action.jpg" alt="" />
+      <video id="v-wolverine" class="clip media" data-start="14.5" data-duration="7.2" data-track-index="0" data-media-start="1" src="assets/hd/clip-wolverine-main.mp4" muted playsinline></video>
+      <img id="v-gow" class="clip media" data-start="21.7" data-duration="8" data-track-index="0" src="assets/god-of-war-laufey-final.jpg" alt="" />
+      <img id="v-until" class="clip media" data-start="29.7" data-duration="2.9" data-track-index="0" src="assets/until-dawn-2.jpg" alt="" />
+      <video id="v-silent" class="clip media" data-start="32.6" data-duration="2.9" data-track-index="0" src="assets/hd/clip-silent-hill-townfall.mp4" muted playsinline></video>
+      <img id="v-control" class="clip media" data-start="35.5" data-duration="2.7" data-track-index="0" src="assets/control-resonant.jpg" alt="" />
+      <video id="v-onimusha" class="clip media" data-start="38.2" data-duration="3.59" data-track-index="0" src="assets/hd/clip-onimusha.mp4" muted playsinline></video>
+      <video id="v-rayman" class="clip media" data-start="41.8" data-duration="2.8" data-track-index="0" src="assets/hd/clip-rayman-retold.mp4" muted playsinline></video>
+      <img id="v-ace" class="clip media" data-start="44.6" data-duration="2.4" data-track-index="0" src="assets/ace-combat-8.jpg" alt="" />
+      <video id="v-tokon" class="clip media" data-start="47" data-duration="3" data-track-index="0" src="assets/hd/clip-marvel-tokon.mp4" muted playsinline></video>
+      <video id="v-marathon" class="clip media" data-start="50" data-duration="2.7" data-track-index="0" src="assets/hd/clip-marathon-s2.mp4" muted playsinline></video>
+      <video id="v-dune" class="clip media" data-start="52.7" data-duration="8.5" data-track-index="0" src="assets/hd/clip-dune-awakening.mp4" muted playsinline></video>
+
+      <audio
+        id="narration"
+        data-start="0"
+        data-duration="61.2"
+        data-track-index="10"
+        src="assets/narration-final.mp3"
+        data-volume="1"
+      ></audio>
+
+      <div class="vignette"></div>
+      <div class="grain"></div>
+
+      <div class="hud">
+        <span class="tag hot">STATE OF PLAY</span>
+        <span class="tag">2026.06.03</span>
+      </div>
+
+      <section id="s0" class="scene active">
+        <div class="eyebrow">影之刃零 / Phantom Blade Zero</div>
+        <h1>影之刃零延期</h1>
+        <p class="summary">从 <em>9月9日</em> 顺延到 <em>10月29日</em>，夏末还有专场。</p>
+      </section>
+      <section id="s1" class="scene">
+        <div class="eyebrow">漫威金刚狼 / Marvel's Wolverine</div>
+        <h2>金刚狼定档</h2>
+        <p class="summary">2026 年 9 月 15 日，Jean Grey 登场。</p>
+      </section>
+      <section id="s2" class="scene">
+        <div class="eyebrow">战神：劳菲 / God of War Laufey</div>
+        <h2>菲做主角</h2>
+        <p class="summary">死后的神域醒来，为奎托斯和阿特柔斯再打一场。</p>
+      </section>
+      <section id="s3" class="scene">
+        <div class="eyebrow">直到黎明2 / Until Dawn 2</div>
+        <h2>明年发售</h2>
+        <p class="summary">独立新故事，ghost hunters 主角团。</p>
+      </section>
+      <section id="s4" class="scene">
+        <div class="eyebrow">寂静岭：小镇陨落 / Silent Hill: Townfall</div>
+        <h2>9月24日</h2>
+        <p class="summary">Simon 主线，新角色 Zoe 登场。</p>
+      </section>
+      <section id="s5" class="scene">
+        <div class="eyebrow">控制：共鸣 / Control Resonant</div>
+        <h2>同日上线</h2>
+        <p class="summary">迪伦是唯一可玩主角。</p>
+      </section>
+      <section id="s6" class="scene">
+        <div class="eyebrow">鬼武者：剑之道 / Onimusha</div>
+        <h2>9月25日</h2>
+        <p class="summary">试玩版已上线，主角宫本武藏。</p>
+      </section>
+      <section id="s7" class="scene">
+        <div class="eyebrow">雷曼传奇重述 / Rayman Legends Retold</div>
+        <h2>10月1日</h2>
+        <p class="summary">不是单纯复刻，是 3D 重构。</p>
+      </section>
+      <section id="s8" class="scene">
+        <div class="eyebrow">皇牌空战8 / Ace Combat 8</div>
+        <h2>10月2日</h2>
+        <p class="summary">Wings of Theve 正式定档。</p>
+      </section>
+      <section id="s9" class="scene">
+        <div class="eyebrow">漫威斗魂 / Marvel Tokon</div>
+        <h2>新角色加入</h2>
+        <p class="summary">万磁王、绿魔、屠杀。</p>
+      </section>
+      <section id="s10" class="scene">
+        <div class="eyebrow">马拉松第二季 / Marathon S2</div>
+        <h2>今天开季</h2>
+        <p class="summary">Night Marsh、Sentinel、Cradle。</p>
+      </section>
+      <section id="s11" class="scene">
+        <div class="eyebrow">沙丘：觉醒 / Dune: Awakening</div>
+        <h2>PS5 新消息</h2>
+        <p class="summary">这场把 9 月到 10 月的主机大战线排出来了。</p>
+      </section>
+
+      <div class="caption-wrap" aria-hidden="true">
+        <div id="cap0" class="caption">别只盯着漫威金刚狼，最关键的是 <em>影之刃零延期</em>。</div>
+        <div id="cap1" class="caption">它从 9 月 9 日顺延到 <em>10 月 29 日</em>。</div>
+        <div id="cap2" class="caption">今夏还有 15 到 20 分钟专场。</div>
+        <div id="cap3" class="caption">漫威金刚狼定档 9 月 15 日。</div>
+        <div id="cap4" class="caption">琴葛蕾、掠夺者、玻利瓦尔 特拉斯克都露面。</div>
+        <div id="cap5" class="caption">战神：劳菲，主角就是菲。</div>
+        <div id="cap6" class="caption">死后的神域醒来，为奎托斯和阿特柔斯再打一场。</div>
+        <div id="cap7" class="caption">直到黎明2 明年发售。</div>
+        <div id="cap8" class="caption">寂静岭：小镇陨落 9 月 24 日。</div>
+        <div id="cap9" class="caption">控制：共鸣同一天上线，迪伦是唯一可玩主角。</div>
+        <div id="cap10" class="caption">鬼武者：剑之道 9 月 25 日，试玩版已上线。</div>
+        <div id="cap11" class="caption">雷曼传奇重述 10 月 1 日，皇牌空战8 10 月 2 日。</div>
+        <div id="cap12" class="caption">漫威斗魂新增万磁王、绿魔和屠杀。</div>
+        <div id="cap13" class="caption">马拉松第二季今天开。</div>
+        <div id="cap14" class="caption">沙丘：觉醒也给了主机版新消息。</div>
+        <div id="cap15" class="caption">一句话：9 月到 10 月，主机档期开始打架。</div>
+      </div>
+
+      <div id="wipe" class="wipe"></div>
+      <div id="wipe-red" class="wipe-red"></div>
+    </div>
+
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      window.__timelines = window.__timelines || {};
+
+      const scenes = [
+        "#s0",
+        "#s1",
+        "#s2",
+        "#s3",
+        "#s4",
+        "#s5",
+        "#s6",
+        "#s7",
+        "#s8",
+        "#s9",
+        "#s10",
+        "#s11"
+      ];
+      const starts = [0, 14.5, 21.7, 29.7, 32.6, 35.5, 38.2, 41.8, 44.6, 47, 50, 52.7];
+
+      function addFrom(selector, vars, at) {
+        const nodes = document.querySelectorAll(selector);
+        if (nodes.length > 0) {
+          tl.from(nodes, vars, at);
+        }
+      }
+
+      function enterScene(selector, at) {
+        addFrom(selector + " .eyebrow", { x: -24, opacity: 0, duration: 0.32, ease: "expo.out" }, at + 0.18);
+        addFrom(selector + " h1, " + selector + " h2", { y: 72, scale: 0.94, opacity: 0, duration: 0.48, ease: "back.out(1.35)" }, at + 0.28);
+        addFrom(selector + " .summary", { y: 40, opacity: 0, duration: 0.38, ease: "power3.out" }, at + 0.54);
+      }
+
+      function transition(prev, next, at) {
+        tl.set("#wipe", { x: "-110%" }, at);
+        tl.set("#wipe-red", { x: "-122%" }, at);
+        tl.to("#wipe", { x: "0%", duration: 0.16, ease: "power4.inOut", overwrite: "auto" }, at);
+        tl.to("#wipe-red", { x: "0%", duration: 0.14, ease: "expo.inOut", overwrite: "auto" }, at + 0.03);
+        tl.set(prev, { opacity: 0 }, at + 0.18);
+        tl.set(next, { opacity: 1 }, at + 0.18);
+        tl.to("#wipe", { x: "112%", duration: 0.22, ease: "power4.inOut", overwrite: "auto" }, at + 0.19);
+        tl.to("#wipe-red", { x: "118%", duration: 0.2, ease: "expo.inOut", overwrite: "auto" }, at + 0.2);
+      }
+
+      enterScene("#s0", 0);
+      for (let i = 1; i < scenes.length; i += 1) {
+        transition(scenes[i - 1], scenes[i], starts[i] - 0.18);
+        enterScene(scenes[i], starts[i]);
+      }
+
+      const captionTimes = [
+        [0.2, 5.9],
+        [5.9, 9.6],
+        [9.6, 14.5],
+        [14.5, 17.4],
+        [17.4, 21.7],
+        [21.7, 25.0],
+        [25.0, 29.7],
+        [29.7, 32.6],
+        [32.6, 35.5],
+        [35.5, 38.2],
+        [38.2, 41.8],
+        [41.8, 47.0],
+        [47.0, 50.0],
+        [50.0, 52.7],
+        [52.7, 55.0],
+        [55.0, 60.7]
+      ];
+
+      captionTimes.forEach(function (range, index) {
+        const id = "#cap" + index;
+        tl.set(id, { visibility: "visible" }, range[0]);
+        tl.fromTo(id, { y: 22, scale: 0.96, opacity: 0 }, { y: 0, scale: 1, opacity: 1, duration: 0.16, ease: "back.out(1.7)" }, range[0]);
+        tl.to(id, { opacity: 0, scale: 0.96, duration: 0.1, ease: "power2.in" }, range[1] - 0.1);
+        tl.set(id, { opacity: 0, visibility: "hidden" }, range[1]);
+      });
+
+      const ambientRepeat = Math.ceil(61.2 / 2.8) - 1;
+      tl.to(".grain", { opacity: 0.28, duration: 1.4, repeat: ambientRepeat, yoyo: true, ease: "sine.inOut" }, 0);
+      tl.to("#s11", { opacity: 0, duration: 0.45, ease: "power2.in" }, 60.75);
+
+      window.__timelines["stateofplay-douyin"] = tl;
+    </script>
+  </body>
+</html>

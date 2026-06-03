@@ -1,0 +1,11 @@
+node_modules/
+.venv/
+.hyperframes/
+renders/
+assets/*
+!assets/README.md
+tools/bgutil-ytdlp-pot-provider/
+tools/*.cmd
+AGENTS.md
+CLAUDE.md
+*.log

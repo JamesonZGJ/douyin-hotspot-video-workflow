@@ -1,0 +1,25 @@
+{
+  "event": {
+    "title": "发布会名称",
+    "aired": "YYYY-MM-DD",
+    "sources": [
+      "官方总汇链接"
+    ]
+  },
+  "items": [
+    {
+      "cn_name": "中文游戏名",
+      "original_name": "Original Game Name",
+      "beat": "一句话重点",
+      "release": "YYYY-MM-DD / TBA",
+      "source": "官方文章链接",
+      "asset": "assets/example.mp4",
+      "asset_type": "video",
+      "clip_source": "官方 YouTube 或官方素材链接",
+      "usable_media_start": 0,
+      "usable_media_note": "跳过片头，从实机或预告画面开始"
+    }
+  ],
+  "asset_rule": "素材优先级：官方实机片段 > 官方预告片段 > 官方截图 > 官方视频抽帧。不能用黑场、logo 卡、纯片头。"
+}
+

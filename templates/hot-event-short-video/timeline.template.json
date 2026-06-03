@@ -1,0 +1,30 @@
+{
+  "composition": {
+    "width": 1080,
+    "height": 1920,
+    "duration": 61.2,
+    "game_frame": {
+      "x": 48,
+      "y": 142,
+      "width": 984,
+      "height": 656,
+      "aspect_ratio": "3:2",
+      "object_fit": "contain"
+    }
+  },
+  "segments": [
+    {
+      "id": "s0",
+      "start": 0,
+      "end": 8,
+      "cn_name": "中文游戏名",
+      "title": "画面大标题",
+      "caption": "底部字幕",
+      "asset": "assets/example.mp4",
+      "asset_type": "video",
+      "media_start": 0
+    }
+  ],
+  "rule": "segments 的 start/end 必须跟旁白实际说到这个游戏的时间一致。先定旁白时间，再切画面。"
+}
+
