@@ -1,0 +1,6 @@
+assets/
+renders/
+analysis/
+.hyperframes/
+node_modules/
+*.log

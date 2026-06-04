@@ -1,0 +1,40 @@
+{
+  "title": "混音青春预告二剪",
+  "duration": 44,
+  "canvas": "1080x1920",
+  "video_frame": "972x1080 centered, 9:10 crop, labels inside the frame",
+  "audio_rule": "Disable clip source audio. Use one continuous music bed, mix selected original English dialogue above it, duck music during dialogue, fade music out at the end. No Chinese narration.",
+  "source": {
+    "store": "Steam official media CDN",
+    "max_downloaded_resolution": "1920x1080",
+    "youtube_2k_status": "Official YouTube had bot verification; browser cookie access was authorized but local cookie extraction failed."
+  },
+  "render": {
+    "file": "renders/mixtape-trailer-card-v2.mp4",
+    "duration_seconds": 44.02,
+    "resolution": "1080x1920",
+    "fps": 30,
+    "audio": "assets/audio/final-mix-v2.m4a"
+  },
+  "clips": [
+    { "id": "clip00a", "start": 0.0, "duration": 3.98, "source": "steam1.mp4", "source_start": 4.0, "caption": "今晚，我们被邀请去卡米尔·科尔的海边派对。" },
+    { "id": "clip00b", "start": 4.0, "duration": 3.28, "source": "steam1.mp4", "source_start": 9.05, "caption": "今晚，我们被邀请去卡米尔·科尔的海边派对。" },
+    { "id": "clip01", "start": 7.3, "duration": 6.06, "source": "steam1.mp4", "source_start": 18.5, "caption": "大学生、富家子、运动员、滑板少年，全都会去。" },
+    { "id": "clip02", "start": 13.38, "duration": 3.18, "source": "steam1.mp4", "source_start": 24.58, "caption": "现在我们没酒，但有几条线索。" },
+    { "id": "clip03", "start": 16.58, "duration": 8.58, "source": "steam2.mp4", "source_start": 11.79, "caption": "我总在想，自己是不是过上了正确的青春。真正的青春，根本没有标准答案。" },
+    { "id": "clip04", "start": 25.18, "duration": 1.78, "source": "steam3.mp4", "source_start": 16.42, "caption": "一个时代结束前，回头听听你的精选集。" },
+    { "id": "clip05", "start": 26.98, "duration": 1.78, "source": "steam3.mp4", "source_start": 21.22, "caption": "一个时代结束前，回头听听你的精选集。" },
+    { "id": "clip06", "start": 28.78, "duration": 1.43, "source": "steam3.mp4", "source_start": 33.48, "caption": "一个时代结束前，回头听听你的精选集。" },
+    { "id": "clip07", "start": 30.23, "duration": 1.58, "source": "steam3.mp4", "source_start": 38.48, "caption": "只剩最后一晚，可以把青春放到最大声。" },
+    { "id": "clip08", "start": 31.83, "duration": 1.78, "source": "steam3.mp4", "source_start": 43.48, "caption": "只剩最后一晚，可以把青春放到最大声。" },
+    { "id": "clip09", "start": 33.63, "duration": 3.98, "source": "steam3.mp4", "source_start": 48.68, "caption": "配上这套歌单，这一晚会炸。" },
+    { "id": "clip10", "start": 37.63, "duration": 3.18, "source": "steam1.mp4", "source_start": 0.0, "caption": "IGN 10/10 · GameSpot 9/10 · Metacritic 86 · Steam 特别好评" },
+    { "id": "clip11", "start": 40.83, "duration": 3.17, "source": "steam2.mp4", "source_start": 37.0, "caption": "片名卡收尾，无搜索引导" }
+  ],
+  "text_rules": [
+    "Chinese subtitles use karaoke-style character reveal.",
+    "Bottom-left in-frame label is the Chinese game name.",
+    "Top-right in-frame label is the studio.",
+    "Do not show platform CTA, saved-video ending text, or extra corner labels."
+  ]
+}

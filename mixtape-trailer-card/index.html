@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mixtape Trailer Card</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      html,
+      body {
+        width: 1080px;
+        height: 1920px;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background: #050506;
+      }
+
+      #mixtape-trailer-card {
+        position: relative;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: #050506;
+        color: #fff4dd;
+        font-family: "Noto Sans Japanese", sans-serif;
+      }
+
+      .frame {
+        position: absolute;
+        left: 54px;
+        top: 300px;
+        width: 972px;
+        height: 1080px;
+        overflow: hidden;
+        background: #030304;
+        border: 2px solid rgba(255, 244, 221, 0.34);
+        box-shadow: 0 42px 140px rgba(0, 0, 0, 0.74);
+        z-index: 1;
+      }
+
+      .media {
+        position: absolute;
+        left: 54px;
+        top: 300px;
+        width: 972px;
+        height: 1080px;
+        object-fit: cover;
+        object-position: center center;
+        background: #030304;
+        filter: saturate(1.16) contrast(1.08) brightness(1.03);
+        z-index: 2;
+      }
+
+      .shade {
+        position: absolute;
+        left: 54px;
+        top: 300px;
+        width: 972px;
+        height: 1080px;
+        z-index: 5;
+        pointer-events: none;
+        background:
+          linear-gradient(180deg, rgba(3, 3, 4, 0.42) 0%, rgba(3, 3, 4, 0) 23%, rgba(3, 3, 4, 0) 58%, rgba(3, 3, 4, 0.64) 100%),
+          radial-gradient(circle at 24% 18%, rgba(242, 212, 107, 0.1), rgba(242, 212, 107, 0) 34%);
+      }
+
+      .grain {
+        position: absolute;
+        inset: 0;
+        z-index: 30;
+        pointer-events: none;
+        opacity: 0.055;
+        background-image:
+          linear-gradient(rgba(255, 244, 221, 0.06) 1px, rgba(255, 244, 221, 0) 1px),
+          linear-gradient(90deg, rgba(255, 244, 221, 0.04) 1px, rgba(255, 244, 221, 0) 1px);
+        background-size: 44px 44px;
+      }
+
+      .corner-title,
+      .corner-studio {
+        position: absolute;
+        z-index: 18;
+        color: #fff4dd;
+        text-shadow: 0 3px 18px rgba(0, 0, 0, 0.78);
+      }
+
+      .corner-title {
+        left: 88px;
+        bottom: 570px;
+        font-size: 34px;
+        line-height: 1.18;
+        font-weight: 900;
+      }
+
+      .corner-title .en {
+        display: block;
+        margin-top: 5px;
+        color: #f2d46b;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 20px;
+        letter-spacing: 0.08em;
+      }
+
+      .corner-studio {
+        right: 84px;
+        top: 334px;
+        padding: 10px 14px;
+        background: rgba(5, 5, 6, 0.58);
+        border: 1px solid rgba(255, 244, 221, 0.28);
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 18px;
+        line-height: 1.15;
+        font-weight: 800;
+        letter-spacing: 0.05em;
+        text-align: right;
+      }
+
+      .corner-studio span {
+        display: block;
+      }
+
+      .caption {
+        position: absolute;
+        left: 94px;
+        right: 94px;
+        bottom: 610px;
+        z-index: 20;
+        color: #fff4dd;
+        font-size: 45px;
+        line-height: 1.22;
+        font-weight: 900;
+        text-shadow:
+          0 4px 18px rgba(0, 0, 0, 0.96),
+          0 0 3px rgba(0, 0, 0, 0.96);
+      }
+
+      .caption .char {
+        display: inline-block;
+        min-width: 0.5em;
+        opacity: 0;
+      }
+
+      .story-caption {
+        font-size: 42px;
+        color: #f2d46b;
+      }
+
+      .score-card {
+        position: absolute;
+        left: 94px;
+        right: 94px;
+        bottom: 616px;
+        z-index: 21;
+      }
+
+      .score-wrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        opacity: 0;
+      }
+
+      .score {
+        min-height: 102px;
+        padding: 17px 18px;
+        box-sizing: border-box;
+        background: rgba(255, 244, 221, 0.96);
+        color: #050506;
+        border-left: 7px solid #ff5aa5;
+        font-family: "IBM Plex Mono", monospace;
+      }
+
+      .score::before {
+        content: attr(data-main);
+        display: block;
+        font-size: 31px;
+        line-height: 1;
+        font-weight: 900;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .score::after {
+        content: attr(data-sub);
+        display: block;
+        margin-top: 8px;
+        font-size: 18px;
+        line-height: 1.1;
+        font-weight: 800;
+      }
+
+      .cut-flash {
+        position: absolute;
+        inset: 0;
+        z-index: 40;
+        pointer-events: none;
+        opacity: 0;
+        background: #fff4dd;
+        mix-blend-mode: screen;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="mixtape-trailer-card" data-composition-id="mixtape-trailer-card" data-start="0" data-duration="44" data-width="1080" data-height="1920">
+      <div class="frame"></div>
+
+      <video id="v00a" class="clip media" src="assets/clips-v2/clip00a.mp4" data-start="0" data-duration="3.98" data-track-index="0" muted playsinline></video>
+      <video id="v00b" class="clip media" src="assets/clips-v2/clip00b.mp4" data-start="4" data-duration="3.28" data-track-index="0" muted playsinline></video>
+      <video id="v01" class="clip media" src="assets/clips-v2/clip01.mp4" data-start="7.3" data-duration="6.06" data-track-index="0" muted playsinline></video>
+      <video id="v02" class="clip media" src="assets/clips-v2/clip02.mp4" data-start="13.38" data-duration="3.18" data-track-index="0" muted playsinline></video>
+      <video id="v03" class="clip media" src="assets/clips-v2/clip03.mp4" data-start="16.58" data-duration="8.58" data-track-index="0" muted playsinline></video>
+      <video id="v04" class="clip media" src="assets/clips-v2/clip04.mp4" data-start="25.18" data-duration="1.78" data-track-index="0" muted playsinline></video>
+      <video id="v05" class="clip media" src="assets/clips-v2/clip05.mp4" data-start="26.98" data-duration="1.78" data-track-index="0" muted playsinline></video>
+      <video id="v06" class="clip media" src="assets/clips-v2/clip06.mp4" data-start="28.78" data-duration="1.43" data-track-index="0" muted playsinline></video>
+      <video id="v07" class="clip media" src="assets/clips-v2/clip07.mp4" data-start="30.23" data-duration="1.58" data-track-index="0" muted playsinline></video>
+      <video id="v08" class="clip media" src="assets/clips-v2/clip08.mp4" data-start="31.83" data-duration="1.78" data-track-index="0" muted playsinline></video>
+      <video id="v09" class="clip media" src="assets/clips-v2/clip09.mp4" data-start="33.63" data-duration="3.98" data-track-index="0" muted playsinline></video>
+      <video id="v10" class="clip media" src="assets/clips-v2/clip10.mp4" data-start="37.63" data-duration="3.18" data-track-index="0" muted playsinline></video>
+      <video id="v11" class="clip media" src="assets/clips-v2/clip11.mp4" data-start="40.83" data-duration="3.17" data-track-index="0" muted playsinline></video>
+
+      <audio id="final-mix" src="assets/audio/final-mix-v2.m4a" data-start="0" data-duration="44" data-track-index="10" data-volume="1"></audio>
+
+      <div class="shade"></div>
+      <div class="grain"></div>
+
+      <div class="corner-title">
+        混音青春
+        <span class="en">MIXTAPE</span>
+      </div>
+      <div class="corner-studio"><span>BEETHOVEN</span><span>& DINOSAUR</span></div>
+
+      <div id="cap00" class="clip caption karaoke" data-start="0.35" data-duration="6.65" data-track-index="20" data-text="今晚，我们被邀请去卡米尔·科尔的海边派对。"></div>
+      <div id="cap01" class="clip caption karaoke" data-start="7.55" data-duration="5.35" data-track-index="20" data-text="大学生、富家子、运动员、滑板少年，全都会去。"></div>
+      <div id="cap02" class="clip caption karaoke" data-start="13.58" data-duration="2.75" data-track-index="20" data-text="现在我们没酒，但有几条线索。"></div>
+      <div id="cap03" class="clip caption karaoke" data-start="16.82" data-duration="8.05" data-track-index="20" data-text="我总在想，自己是不是过上了正确的青春。真正的青春，根本没有标准答案。"></div>
+      <div id="cap04" class="clip caption karaoke story-caption" data-start="25.2" data-duration="3.15" data-track-index="20" data-text="一个时代结束前，回头听听你的精选集。"></div>
+      <div id="cap05" class="clip caption karaoke story-caption" data-start="30.25" data-duration="3.1" data-track-index="20" data-text="只剩最后一晚，可以把青春放到最大声。"></div>
+      <div id="cap06" class="clip caption karaoke story-caption" data-start="33.65" data-duration="3.6" data-track-index="20" data-text="配上这套歌单，这一晚会炸。"></div>
+
+      <div id="score" class="clip score-card" data-start="37.63" data-duration="3.18" data-track-index="21">
+        <div class="score-wrap">
+          <div class="score" data-main="IGN 10/10" data-sub="媒体满分"></div>
+          <div class="score" data-main="GameSpot 9" data-sub="Superb"></div>
+          <div class="score" data-main="Metacritic 86" data-sub="综合评分"></div>
+          <div class="score" data-main="Steam 特别好评" data-sub="用户评价"></div>
+        </div>
+      </div>
+
+      <div id="flash" class="cut-flash"></div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const cutStarts = [4, 7.3, 13.38, 16.58, 25.18, 26.98, 28.78, 30.23, 31.83, 33.63, 37.63, 40.83];
+
+      document.querySelectorAll(".karaoke").forEach((node) => {
+        const chars = Array.from(node.dataset.text || "");
+        node.innerHTML = chars.map((char) => `<span class="char">${char === " " ? "&nbsp;" : char}</span>`).join("");
+      });
+
+      tl.from(".frame", { scale: 0.985, opacity: 0, duration: 0.45, ease: "power3.out" }, 0.08);
+      tl.from(".corner-title", { x: -26, y: 14, opacity: 0, duration: 0.42, ease: "power4.out" }, 0.75);
+      tl.from(".corner-studio", { x: 24, opacity: 0, duration: 0.36, ease: "circ.out" }, 0.95);
+
+      document.querySelectorAll(".karaoke").forEach((node) => {
+        const id = `#${node.id}`;
+        const start = Number(node.getAttribute("data-start"));
+        const duration = Number(node.getAttribute("data-duration"));
+        const charCount = node.querySelectorAll(".char").length;
+        const each = Math.max(0.035, (duration * 0.78) / Math.max(1, charCount));
+        tl.fromTo(`${id} .char`, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.08, stagger: { each }, ease: "power2.out" }, start + 0.08);
+      });
+
+      tl.set("#score .score-wrap", { opacity: 1 }, 37.63);
+      tl.from("#score .score", { y: 24, opacity: 0, duration: 0.22, stagger: 0.055, ease: "back.out(1.25)" }, 37.74);
+      tl.set("#score .score-wrap", { opacity: 0, visibility: "hidden" }, 40.81);
+
+      cutStarts.forEach((at, index) => {
+        const peak = index % 4 === 0 ? 0.18 : 0.1;
+        tl.fromTo("#flash", { opacity: peak }, { opacity: 0, duration: 0.16, ease: "power2.out" }, at);
+      });
+
+      tl.to(".grain", { opacity: 0.13, duration: 1.4, repeat: Math.floor(44 / 2.8) - 1, yoyo: true, ease: "sine.inOut" }, 0);
+      tl.to([".corner-title", ".corner-studio"], { opacity: 0, duration: 0.4, ease: "power2.in" }, 43.45);
+      tl.set([".corner-title", ".corner-studio"], { opacity: 0, visibility: "hidden" }, 43.9);
+
+      window.__timelines["mixtape-trailer-card"] = tl;
+    </script>
+  </body>
+</html>

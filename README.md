@@ -14,6 +14,14 @@
 - 字幕：手工同步，避免本机 Whisper 不可用。
 - GitHub 仓库只保存工作流，不保存官方素材、旁白音频和最终 MP4。
 
+## 新增示例
+
+- 示例项目：`mixtape-trailer-card/`，《混音青春》官方预告二剪。
+- 重点写法：不做中文旁白，单独保留关键英文对白，背景音乐连续铺底。
+- 画面：1080x1920 抖音竖屏，中间使用 9:10 游戏画面框，左下角中文名，右上角工作室。
+- 结构：人物身份开场、台词翻译、故事快切、媒体评分卡、片名收尾。
+- 输出：`mixtape-trailer-card/renders/mixtape-trailer-card-v2.mp4`。
+
 ## 本地运行
 
 ```powershell
@@ -42,6 +50,16 @@ npm run render -- --fps 30 --quality high --output renders/stateofplay-douyin.mp
 4. 用 `index.html` 生成 1080x1920 竖屏视频。
 5. 用 `templates/hot-event-short-video/` 作为下一条热点视频的固定模板。
 
+## 预告二剪复用方式
+
+1. 用官方预告做素材，优先高于 1080p 的官方源。
+2. 不生成中文旁白，单独切出关键英文对白。
+3. 找一段连续背景音乐，混音时对白出现就压低背景音乐。
+4. 转写英文台词，挑关键句翻成中文字幕，并按台词节奏逐字出现。
+5. 用中部 9:10 画面框保留游戏主体。
+6. 用媒体评分或短评替代电影奖项卡。
+7. 用 `mixtape-trailer-card/workflow.md` 作为固定模板。
+
 ## 搜索记录
 
 - GitHub 可用方案：`bgutil-ytdlp-pot-provider`，用于给 yt-dlp 提供 YouTube PO Token。
@@ -49,3 +67,4 @@ npm run render -- --fps 30 --quality high --output renders/stateofplay-douyin.mp
 - 下载规则已改成优先 1080p，并统一输出到 `assets/hd/`。
 - HyperFrames TTS 中文在本机 Windows 下失败，原因是 espeak 数据路径缺失；已改用 `edge-tts` 中文男声。
 - YouTube 后段实机片段如果触发年龄验证，需要浏览器 cookies；未获明确同意前不读取 cookies。
+- 《混音青春》官方 YouTube 2K 下载触发机器人验证；用户已授权读取 cookies，但本机 Chrome 被锁、Edge 解密失败，本版使用 Steam 官方 1080p 高码率素材。
