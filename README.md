@@ -20,7 +20,7 @@
 - 重点写法：不做中文旁白，用一条官方预告原声贯穿全片，中文大字补齐故事逻辑。
 - 画面：1080x1920 抖音竖屏，中间使用 9:10 游戏画面框，左下角中文名，右上角工作室。
 - 结构：人物身份开场、台词翻译、故事快切、媒体评分卡、片名收尾。
-- 输出：`mixtape-trailer-card/renders/mixtape-trailer-card-v6-final.mp4`。
+- 输出：`mixtape-trailer-card/renders/mixtape-trailer-card-v7-final.mp4`。
 
 ## 本地运行
 
@@ -57,8 +57,9 @@ npm run render -- --fps 30 --quality high --output renders/stateofplay-douyin.mp
 3. 如果必须保留对白，先确认对白和音乐来自同一条连续预告音频，不要分段拼接。
 4. 转写英文台词，挑关键句翻成中文字幕，并按台词节奏逐字出现。
 5. 用中部 9:10 画面框保留游戏主体。
-6. 用媒体评分或短评替代电影奖项卡。
-7. 用 `mixtape-trailer-card/workflow.md` 作为固定模板。
+6. 相邻片段按源视频时间顺序切，不能重叠倒回同一个镜头。
+7. 用媒体评分或短评替代电影奖项卡。
+8. 用 `mixtape-trailer-card/workflow.md` 作为固定模板。
 
 ## 搜索记录
 
