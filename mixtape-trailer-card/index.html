@@ -135,7 +135,7 @@
         color: #f2d46b;
         font-family: "IBM Plex Mono", monospace;
         font-size: 20px;
-        letter-spacing: 0.08em;
+        letter-spacing: 0;
       }
 
       .corner-studio {
@@ -148,7 +148,7 @@
         font-size: 18px;
         line-height: 1.15;
         font-weight: 800;
-        letter-spacing: 0.05em;
+        letter-spacing: 0;
         text-align: right;
       }
 
@@ -160,10 +160,10 @@
         position: absolute;
         left: 94px;
         right: 94px;
-        bottom: 610px;
+        bottom: 705px;
         z-index: 20;
         color: #fff4dd;
-        font-size: 45px;
+        font-size: 42px;
         line-height: 1.22;
         font-weight: 900;
         text-shadow:
@@ -178,15 +178,38 @@
       }
 
       .story-caption {
-        font-size: 42px;
+        font-size: 40px;
         color: #f2d46b;
+      }
+
+      .story-card {
+        position: absolute;
+        left: 88px;
+        right: 88px;
+        top: 720px;
+        z-index: 19;
+        color: #fff4dd;
+        font-size: 58px;
+        line-height: 1.08;
+        font-weight: 900;
+        text-shadow:
+          0 6px 24px rgba(0, 0, 0, 0.96),
+          0 0 3px rgba(0, 0, 0, 0.96);
+      }
+
+      .story-card .accent {
+        display: block;
+        margin-top: 12px;
+        color: #ffe58a;
+        font-size: 34px;
+        line-height: 1.18;
       }
 
       .score-card {
         position: absolute;
         left: 94px;
         right: 94px;
-        bottom: 616px;
+        bottom: 745px;
         z-index: 21;
       }
 
@@ -237,7 +260,7 @@
     </style>
   </head>
   <body>
-    <div id="mixtape-trailer-card" data-composition-id="mixtape-trailer-card" data-start="0" data-duration="44" data-width="1080" data-height="1920">
+    <div id="mixtape-trailer-card" data-composition-id="mixtape-trailer-card" data-start="0" data-duration="47" data-width="1080" data-height="1920">
       <div class="black-bg"></div>
       <div class="frame"></div>
       <div class="matte matte-top"></div>
@@ -245,22 +268,22 @@
       <div class="matte matte-left"></div>
       <div class="matte matte-right"></div>
 
-      <video id="v00" class="clip media" src="assets/clips-v5/clip00.mp4" data-start="0" data-duration="5.6" data-track-index="0" muted playsinline></video>
-      <video id="v01" class="clip media" src="assets/clips-v5/clip01.mp4" data-start="5.6" data-duration="4.76" data-track-index="0" muted playsinline></video>
-      <video id="v02" class="clip media" src="assets/clips-v5/clip02.mp4" data-start="10.36" data-duration="5" data-track-index="0" muted playsinline></video>
-      <video id="v03" class="clip media" src="assets/clips-v5/clip03.mp4" data-start="15.36" data-duration="3.56" data-track-index="0" muted playsinline></video>
-      <video id="v04" class="clip media" src="assets/clips-v5/clip04.mp4" data-start="18.92" data-duration="5.27" data-track-index="0" muted playsinline></video>
-      <video id="v05" class="clip media" src="assets/clips-v5/clip05.mp4" data-start="24.2" data-duration="2" data-track-index="0" muted playsinline></video>
-      <video id="v06" class="clip media" src="assets/clips-v5/clip06.mp4" data-start="26.2" data-duration="2.09" data-track-index="0" muted playsinline></video>
-      <video id="v07" class="clip media" src="assets/clips-v5/clip07.mp4" data-start="28.3" data-duration="2.09" data-track-index="0" muted playsinline></video>
-      <video id="v08" class="clip media" src="assets/clips-v5/clip08.mp4" data-start="30.4" data-duration="2.09" data-track-index="0" muted playsinline></video>
-      <video id="v09" class="clip media" src="assets/clips-v5/clip09.mp4" data-start="32.5" data-duration="2.09" data-track-index="0" muted playsinline></video>
-      <video id="v10" class="clip media" src="assets/clips-v5/clip10.mp4" data-start="34.6" data-duration="2.09" data-track-index="0" muted playsinline></video>
-      <video id="v11" class="clip media" src="assets/clips-v5/clip11.mp4" data-start="36.7" data-duration="2.09" data-track-index="0" muted playsinline></video>
-      <video id="v12" class="clip media" src="assets/clips-v5/clip12.mp4" data-start="38.8" data-duration="2.79" data-track-index="0" muted playsinline></video>
-      <video id="v13" class="clip media" src="assets/clips-v5/clip13.mp4" data-start="41.6" data-duration="2.4" data-track-index="0" muted playsinline></video>
+      <video id="v00" class="clip media" src="assets/clips-v6/clip00.mp4" data-start="0" data-duration="4" data-track-index="0" muted playsinline></video>
+      <video id="v01" class="clip media" src="assets/clips-v6/clip01.mp4" data-start="4" data-duration="3.2" data-track-index="0" muted playsinline></video>
+      <video id="v02" class="clip media" src="assets/clips-v6/clip02.mp4" data-start="7.2" data-duration="3.3" data-track-index="0" muted playsinline></video>
+      <video id="v03" class="clip media" src="assets/clips-v6/clip03.mp4" data-start="10.5" data-duration="3.2" data-track-index="0" muted playsinline></video>
+      <video id="v04" class="clip media" src="assets/clips-v6/clip04.mp4" data-start="13.7" data-duration="3.2" data-track-index="0" muted playsinline></video>
+      <video id="v05" class="clip media" src="assets/clips-v6/clip05.mp4" data-start="16.9" data-duration="3.3" data-track-index="0" muted playsinline></video>
+      <video id="v06" class="clip media" src="assets/clips-v6/clip06.mp4" data-start="20.2" data-duration="3" data-track-index="0" muted playsinline></video>
+      <video id="v07" class="clip media" src="assets/clips-v6/clip07.mp4" data-start="23.2" data-duration="3.5" data-track-index="0" muted playsinline></video>
+      <video id="v08" class="clip media" src="assets/clips-v6/clip08.mp4" data-start="26.7" data-duration="3.3" data-track-index="0" muted playsinline></video>
+      <video id="v09" class="clip media" src="assets/clips-v6/clip09.mp4" data-start="30" data-duration="3.5" data-track-index="0" muted playsinline></video>
+      <video id="v10" class="clip media" src="assets/clips-v6/clip10.mp4" data-start="33.5" data-duration="3.5" data-track-index="0" muted playsinline></video>
+      <video id="v11" class="clip media" src="assets/clips-v6/clip11.mp4" data-start="37" data-duration="3.7" data-track-index="0" muted playsinline></video>
+      <video id="v12" class="clip media" src="assets/clips-v6/clip12.mp4" data-start="40.7" data-duration="3.3" data-track-index="0" muted playsinline></video>
+      <video id="v13" class="clip media" src="assets/clips-v6/clip13.mp4" data-start="44" data-duration="3" data-track-index="0" muted playsinline></video>
 
-      <audio id="final-mix" src="assets/audio/final-mix-v3.m4a" data-start="0" data-duration="44" data-track-index="10" data-volume="1"></audio>
+      <audio id="final-mix" src="assets/audio/final-mix-v6.m4a" data-start="0" data-duration="47" data-track-index="10" data-volume="1"></audio>
 
       <div class="shade"></div>
       <div class="grain"></div>
@@ -271,17 +294,23 @@
       </div>
       <div class="corner-studio"><span>BEETHOVEN</span><span>& DINOSAUR</span></div>
 
-      <div id="cap00" class="clip caption karaoke" data-start="0.45" data-duration="7.4" data-track-index="20" data-text="时候到了。今晚，我们要去卡米尔·科尔的海边派对。"></div>
-      <div id="cap01" class="clip caption karaoke" data-start="8.05" data-duration="2.15" data-track-index="20" data-text="这太顶了，今晚一定很疯。"></div>
-      <div id="cap02" class="clip caption karaoke" data-start="10.75" data-duration="4.9" data-track-index="20" data-text="所有人都会去：大学生、富家子、运动员、滑板少年。"></div>
-      <div id="cap03" class="clip caption karaoke" data-start="16.05" data-duration="2.7" data-track-index="20" data-text="这就是青春的上流社交场。"></div>
-      <div id="cap04" class="clip caption karaoke" data-start="19.2" data-duration="2.3" data-track-index="20" data-text="现在我们没酒，但有几条线索。"></div>
-      <div id="cap05" class="clip caption karaoke" data-start="21.75" data-duration="2.25" data-track-index="20" data-text="先去我家，再去卡桑德拉那边。"></div>
-      <div id="cap06" class="clip caption karaoke story-caption" data-start="25.05" data-duration="3.1" data-track-index="20" data-text="毕业前的最后一晚，回忆被音乐点燃。"></div>
-      <div id="cap07" class="clip caption karaoke story-caption" data-start="29.0" data-duration="3.4" data-track-index="20" data-text="追车、屋顶、海边，像一盘快要倒带的磁带。"></div>
-      <div id="cap08" class="clip caption karaoke story-caption" data-start="34.05" data-duration="3.45" data-track-index="20" data-text="不是怀旧，是把青春重新放到最大声。"></div>
+      <div id="story00" class="clip story-card" data-start="0.55" data-duration="3.2" data-track-index="18">
+        一盘磁带
+        <span class="accent">翻出三个人的最后一晚</span>
+      </div>
+      <div id="story01" class="clip story-card" data-start="20.45" data-duration="3.55" data-track-index="18">
+        他们探索的
+        <span class="accent">不是派对，是告别前的友情</span>
+      </div>
 
-      <div id="score" class="clip score-card" data-start="38.8" data-duration="2.8" data-track-index="21">
+      <div id="cap00" class="clip caption karaoke" data-start="4.2" data-duration="3.6" data-track-index="20" data-text="毕业前最后一晚，洛克福德把歌单按下播放。"></div>
+      <div id="cap01" class="clip caption karaoke" data-start="9.0" data-duration="4.0" data-track-index="20" data-text="她和斯莱特、卡桑德拉，要去卡米尔的海边派对。"></div>
+      <div id="cap02" class="clip caption karaoke" data-start="14.2" data-duration="4.2" data-track-index="20" data-text="先回家找线索，再去卡桑德拉那边。"></div>
+      <div id="cap03" class="clip caption karaoke story-caption" data-start="24.4" data-duration="4.2" data-track-index="20" data-text="每一首歌，都打开一段旧回忆。"></div>
+      <div id="cap04" class="clip caption karaoke story-caption" data-start="30.1" data-duration="4.3" data-track-index="20" data-text="公路、屋顶、烟火和追车，全都被青春点燃。"></div>
+      <div id="cap05" class="clip caption karaoke story-caption" data-start="34.55" data-duration="2.05" data-track-index="20" data-text="这不是怀旧，是最后一次把音量开满。"></div>
+
+      <div id="score" class="clip score-card" data-start="37.05" data-duration="3.55" data-track-index="21">
         <div class="score-wrap">
           <div class="score" data-main="IGN 10/10" data-sub="媒体满分"></div>
           <div class="score" data-main="GameSpot 9" data-sub="Superb"></div>
@@ -296,7 +325,7 @@
     <script>
       window.__timelines = window.__timelines || {};
       const tl = gsap.timeline({ paused: true });
-      const cutStarts = [5.6, 10.36, 15.36, 18.92, 24.2, 26.2, 28.3, 30.4, 32.5, 34.6, 36.7, 38.8, 41.6];
+      const cutStarts = [4, 7.2, 10.5, 13.7, 16.9, 20.2, 23.2, 26.7, 30, 33.5, 37, 40.7, 44];
 
       document.querySelectorAll(".karaoke").forEach((node) => {
         const chars = Array.from(node.dataset.text || "");
@@ -307,6 +336,14 @@
       tl.from(".corner-title", { x: -26, y: 14, opacity: 0, duration: 0.42, ease: "power4.out" }, 0.75);
       tl.from(".corner-studio", { x: 24, opacity: 0, duration: 0.36, ease: "circ.out" }, 0.95);
 
+      document.querySelectorAll(".story-card").forEach((node) => {
+        const id = `#${node.id}`;
+        const start = Number(node.getAttribute("data-start"));
+        const duration = Number(node.getAttribute("data-duration"));
+        tl.from(id, { y: 22, opacity: 0, duration: 0.28, ease: "power3.out" }, start + 0.05);
+        tl.to(id, { y: -18, opacity: 0, duration: 0.26, ease: "power2.in" }, start + duration - 0.34);
+      });
+
       document.querySelectorAll(".karaoke").forEach((node) => {
         const id = `#${node.id}`;
         const start = Number(node.getAttribute("data-start"));
@@ -316,17 +353,17 @@
         tl.fromTo(`${id} .char`, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.08, stagger: { each }, ease: "power2.out" }, start + 0.08);
       });
 
-      tl.set("#score .score-wrap", { opacity: 1 }, 38.8);
-      tl.from("#score .score", { y: 24, opacity: 0, duration: 0.22, stagger: 0.055, ease: "back.out(1.25)" }, 38.92);
-      tl.set("#score .score-wrap", { opacity: 0, visibility: "hidden" }, 41.58);
+      tl.set("#score .score-wrap", { opacity: 1 }, 37.05);
+      tl.from("#score .score", { y: 24, opacity: 0, duration: 0.22, stagger: 0.055, ease: "back.out(1.25)" }, 37.16);
+      tl.set("#score .score-wrap", { opacity: 0, visibility: "hidden" }, 40.56);
 
       cutStarts.forEach((at, index) => {
         const peak = index % 4 === 0 ? 0.18 : 0.1;
         tl.fromTo("#flash", { opacity: peak }, { opacity: 0, duration: 0.16, ease: "power2.out" }, at);
       });
 
-      tl.to([".corner-title", ".corner-studio"], { opacity: 0, duration: 0.4, ease: "power2.in" }, 43.45);
-      tl.set([".corner-title", ".corner-studio"], { opacity: 0, visibility: "hidden" }, 43.9);
+      tl.to([".corner-title", ".corner-studio"], { opacity: 0, duration: 0.34, ease: "power2.in" }, 40.65);
+      tl.set([".corner-title", ".corner-studio"], { opacity: 0, visibility: "hidden" }, 41.02);
 
       window.__timelines["mixtape-trailer-card"] = tl;
     </script>

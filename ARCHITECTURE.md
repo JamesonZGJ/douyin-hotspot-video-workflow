@@ -9,10 +9,10 @@
 - `tools/download-official-clips.ps1`：批量下载官方 YouTube 片段。
 - `workflow.md`：复用工作流。
 - `templates/hot-event-short-video/`：以后复用的固定式短视频模板。
-- `mixtape-trailer-card/`：官方预告情绪卡子项目，使用连续背景音乐、关键英文对白、中文字幕和媒体评分卡。
+- `mixtape-trailer-card/`：官方预告情绪卡子项目，使用连续官方预告原声、中文字幕故事卡和媒体评分卡。
 - `mixtape-trailer-card/data/timeline.json`：记录每个预告片段的来源时间、成片时间和中文字幕。
 - `mixtape-trailer-card/workflow.md`：同类“官方预告转抖音预告卡”的复用流程。
 
 调用关系：`facts.json` 提供事实依据，`timeline.json` 约束画面和旁白同步，`download-official-clips.ps1` 产出 `assets/hd/clip-*.mp4`，`index.html` 引用片段和旁白，HyperFrames 渲染成抖音竖屏 MP4。
 
-预告二剪调用关系：官方预告下载到子项目 `assets/source/`，FFmpeg 预切并裁掉内嵌信箱黑边，产出 9:10 静音画面到 `assets/clips-v5/`，连续对白和背景音乐单独混成 `assets/audio/final-mix-v3.m4a`，`data/timeline.json` 记录片段和字幕，`index.html` 引用短片段并叠加中文翻译，HyperFrames 先渲染成 `renders/mixtape-trailer-card-v5.mp4`，再把中间 972x1080 画面原样贴到纯黑画布，输出 `renders/mixtape-trailer-card-v5-final.mp4`。
+预告二剪调用关系：官方预告下载到子项目 `assets/source/`，FFmpeg 预切并裁掉内嵌信箱黑边，产出 9:10 静音画面到 `assets/clips-v6/`，从 `steam2.mp4` 提取一条连续官方预告原声到 `assets/audio/final-mix-v6.m4a`，`data/timeline.json` 记录片段和字幕，`index.html` 引用短片段并叠加中文故事卡，HyperFrames 先渲染成 `renders/mixtape-trailer-card-v6.mp4`，再把中间 972x1080 画面原样贴到纯黑画布，输出 `renders/mixtape-trailer-card-v6-final.mp4`。
