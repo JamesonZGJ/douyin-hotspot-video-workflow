@@ -10,26 +10,28 @@
     "youtube_2k_status": "Official YouTube had bot verification; browser cookie access was authorized but local cookie extraction failed."
   },
   "render": {
-    "file": "renders/mixtape-trailer-card-v2.mp4",
-    "duration_seconds": 44.02,
+    "file": "renders/mixtape-trailer-card-v5-final.mp4",
+    "duration_seconds": 44.01,
     "resolution": "1080x1920",
     "fps": 30,
-    "audio": "assets/audio/final-mix-v2.m4a"
+    "audio": "assets/audio/final-mix-v3.m4a",
+    "black_level_fix": "Do not apply global curves. Source clips are pre-cropped to remove embedded letterbox bars, then the 972x1080 center frame is composited unchanged over a pure #000000 canvas."
   },
   "clips": [
-    { "id": "clip00a", "start": 0.0, "duration": 3.98, "source": "steam1.mp4", "source_start": 4.0, "caption": "今晚，我们被邀请去卡米尔·科尔的海边派对。" },
-    { "id": "clip00b", "start": 4.0, "duration": 3.28, "source": "steam1.mp4", "source_start": 9.05, "caption": "今晚，我们被邀请去卡米尔·科尔的海边派对。" },
-    { "id": "clip01", "start": 7.3, "duration": 6.06, "source": "steam1.mp4", "source_start": 18.5, "caption": "大学生、富家子、运动员、滑板少年，全都会去。" },
-    { "id": "clip02", "start": 13.38, "duration": 3.18, "source": "steam1.mp4", "source_start": 24.58, "caption": "现在我们没酒，但有几条线索。" },
-    { "id": "clip03", "start": 16.58, "duration": 8.58, "source": "steam2.mp4", "source_start": 11.79, "caption": "我总在想，自己是不是过上了正确的青春。真正的青春，根本没有标准答案。" },
-    { "id": "clip04", "start": 25.18, "duration": 1.78, "source": "steam3.mp4", "source_start": 16.42, "caption": "一个时代结束前，回头听听你的精选集。" },
-    { "id": "clip05", "start": 26.98, "duration": 1.78, "source": "steam3.mp4", "source_start": 21.22, "caption": "一个时代结束前，回头听听你的精选集。" },
-    { "id": "clip06", "start": 28.78, "duration": 1.43, "source": "steam3.mp4", "source_start": 33.48, "caption": "一个时代结束前，回头听听你的精选集。" },
-    { "id": "clip07", "start": 30.23, "duration": 1.58, "source": "steam3.mp4", "source_start": 38.48, "caption": "只剩最后一晚，可以把青春放到最大声。" },
-    { "id": "clip08", "start": 31.83, "duration": 1.78, "source": "steam3.mp4", "source_start": 43.48, "caption": "只剩最后一晚，可以把青春放到最大声。" },
-    { "id": "clip09", "start": 33.63, "duration": 3.98, "source": "steam3.mp4", "source_start": 48.68, "caption": "配上这套歌单，这一晚会炸。" },
-    { "id": "clip10", "start": 37.63, "duration": 3.18, "source": "steam1.mp4", "source_start": 0.0, "caption": "IGN 10/10 · GameSpot 9/10 · Metacritic 86 · Steam 特别好评" },
-    { "id": "clip11", "start": 40.83, "duration": 3.17, "source": "steam2.mp4", "source_start": 37.0, "caption": "片名卡收尾，无搜索引导" }
+    { "id": "clip00", "start": 0.0, "duration": 5.6, "source": "steam1.mp4", "source_start": 6.38, "caption": "时候到了。今晚，我们要去卡米尔·科尔的海边派对。" },
+    { "id": "clip01", "start": 5.6, "duration": 4.76, "source": "steam1.mp4", "source_start": 11.98, "caption": "这太顶了，今晚一定很疯。" },
+    { "id": "clip02", "start": 10.36, "duration": 5.0, "source": "steam1.mp4", "source_start": 16.74, "caption": "所有人都会去：大学生、富家子、运动员、滑板少年。" },
+    { "id": "clip03", "start": 15.36, "duration": 3.56, "source": "steam1.mp4", "source_start": 21.74, "caption": "这就是青春的上流社交场。" },
+    { "id": "clip04", "start": 18.92, "duration": 5.27, "source": "steam1.mp4", "source_start": 24.54, "caption": "现在我们没酒，但有几条线索。先去我家，再去卡桑德拉那边。" },
+    { "id": "clip05", "start": 24.2, "duration": 2.0, "source": "steam3.mp4", "source_start": 16.42, "caption": "毕业前的最后一晚，回忆被音乐点燃。" },
+    { "id": "clip06", "start": 26.2, "duration": 2.09, "source": "steam3.mp4", "source_start": 21.22, "caption": "毕业前的最后一晚，回忆被音乐点燃。" },
+    { "id": "clip07", "start": 28.3, "duration": 2.09, "source": "steam3.mp4", "source_start": 38.48, "caption": "追车、屋顶、海边，像一盘快要倒带的磁带。" },
+    { "id": "clip08", "start": 30.4, "duration": 2.09, "source": "steam3.mp4", "source_start": 43.56, "caption": "追车、屋顶、海边，像一盘快要倒带的磁带。" },
+    { "id": "clip09", "start": 32.5, "duration": 2.09, "source": "steam3.mp4", "source_start": 48.68, "caption": "不是怀旧，是把青春重新放到最大声。" },
+    { "id": "clip10", "start": 34.6, "duration": 2.09, "source": "steam3.mp4", "source_start": 56.96, "caption": "不是怀旧，是把青春重新放到最大声。" },
+    { "id": "clip11", "start": 36.7, "duration": 2.09, "source": "steam3.mp4", "source_start": 63.91, "caption": "不是怀旧，是把青春重新放到最大声。" },
+    { "id": "clip12", "start": 38.8, "duration": 2.79, "source": "steam1.mp4", "source_start": 0.0, "caption": "IGN 10/10 · GameSpot 9/10 · Metacritic 86 · Steam 特别好评" },
+    { "id": "clip13", "start": 41.6, "duration": 2.4, "source": "steam2.mp4", "source_start": 37.0, "caption": "片名卡收尾，无搜索引导" }
   ],
   "text_rules": [
     "Chinese subtitles use karaoke-style character reveal.",

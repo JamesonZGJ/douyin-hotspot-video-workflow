@@ -85,5 +85,6 @@ npm run render -- --fps 30 --quality high --output renders/stateofplay-douyin.mp
 | 快切 | 平均 1 到 3 秒一刀，故事段可以更快 |
 | 背书 | 电影奖项换成媒体评分、媒体短评、Steam 评价 |
 | 收口 | 片名或核心情绪，不加保存视频自带结尾 |
+| 黑位检查 | 抽首帧左上角像素；如果背景不是 #000000，只替换外部背景，不要用全局 curves 压暗整条视频 |
 
 示例项目：`mixtape-trailer-card/`。

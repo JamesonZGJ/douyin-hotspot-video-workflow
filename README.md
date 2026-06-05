@@ -20,7 +20,7 @@
 - 重点写法：不做中文旁白，单独保留关键英文对白，背景音乐连续铺底。
 - 画面：1080x1920 抖音竖屏，中间使用 9:10 游戏画面框，左下角中文名，右上角工作室。
 - 结构：人物身份开场、台词翻译、故事快切、媒体评分卡、片名收尾。
-- 输出：`mixtape-trailer-card/renders/mixtape-trailer-card-v2.mp4`。
+- 输出：`mixtape-trailer-card/renders/mixtape-trailer-card-v5-final.mp4`。
 
 ## 本地运行
 

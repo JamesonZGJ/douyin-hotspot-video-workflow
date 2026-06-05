@@ -15,4 +15,4 @@
 
 调用关系：`facts.json` 提供事实依据，`timeline.json` 约束画面和旁白同步，`download-official-clips.ps1` 产出 `assets/hd/clip-*.mp4`，`index.html` 引用片段和旁白，HyperFrames 渲染成抖音竖屏 MP4。
 
-预告二剪调用关系：官方预告下载到子项目 `assets/source/`，FFmpeg 预切静音画面到 `assets/clips-v2/`，对白和背景音乐单独混成 `assets/audio/final-mix-v2.m4a`，`data/timeline.json` 记录片段和字幕，`index.html` 引用短片段并叠加中文翻译，HyperFrames 渲染成 `renders/mixtape-trailer-card-v2.mp4`。
+预告二剪调用关系：官方预告下载到子项目 `assets/source/`，FFmpeg 预切并裁掉内嵌信箱黑边，产出 9:10 静音画面到 `assets/clips-v5/`，连续对白和背景音乐单独混成 `assets/audio/final-mix-v3.m4a`，`data/timeline.json` 记录片段和字幕，`index.html` 引用短片段并叠加中文翻译，HyperFrames 先渲染成 `renders/mixtape-trailer-card-v5.mp4`，再把中间 972x1080 画面原样贴到纯黑画布，输出 `renders/mixtape-trailer-card-v5-final.mp4`。
