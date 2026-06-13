@@ -1,0 +1,4 @@
+interface:
+  display_name: "Douyin Hotspot Video"
+  short_description: "先提问再生成多平台短视频工程脚手架和完整剪辑计划模板"
+  default_prompt: "Use $douyin-hotspot-video to define a short-video idea with 12 questions, then scaffold the video project."

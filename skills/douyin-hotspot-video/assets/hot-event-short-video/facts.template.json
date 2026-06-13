@@ -1,0 +1,47 @@
+{
+  "project": {
+    "slug": "english-project-slug",
+    "platform": "douyin / xiaohongshu / bilibili / wechat-channels / tiktok / youtube-shorts",
+    "aspect_ratio": "9:16 / 16:9 / 1:1 / 4:5",
+    "format": "1080x1920",
+    "fps": 30,
+    "target_duration": "15s / 30s / 60s / 90s / 2-3 minutes",
+    "voice_plan": "AI 旁白 / 自己录音 / 原视频原声 / 无旁白只做字幕卡 / 原声 + 中文字幕",
+    "expression_type": "快报型 / 情绪型 / 观点型 / 种草型 / 吐槽型 / 预告片型 / 极简卡片型",
+    "goal": "快速讲清楚 / 引发讨论 / 安利作品 / 做观点表达 / 提高完播率",
+    "audience": "路人 / 核心玩家 / 粉丝 / 行业从业者 / 没了解过这个话题的人",
+    "must_include": [],
+    "taboos": [],
+    "text_style": "全程字幕 / 重点大字 / 中英双语 / 少字高级感 / 信息卡片密集型",
+    "needs_publish_package": true
+  },
+  "event": {
+    "title": "发布会或视频主题",
+    "aired": "YYYY-MM-DD",
+    "timezone_note": "如有跨时区，写清北京时间和官方原始日期",
+    "sources": [
+      {
+        "label": "官方来源",
+        "url": "https://example.com"
+      }
+    ]
+  },
+  "items": [
+    {
+      "cn_name": "官方中文名，没有就保留原名",
+      "original_name": "Original Name",
+      "beat": "一句话重点",
+      "release": "YYYY-MM-DD / TBA",
+      "platforms": [
+        "Nintendo Switch 2"
+      ],
+      "source": "官方事实来源",
+      "asset": "assets/hd/example.mp4",
+      "asset_type": "video",
+      "clip_source": "官方视频、用户录屏或官方截图来源",
+      "usable_media_start": 0,
+      "usable_media_note": "跳过黑场、logo、片头，从有效画面开始"
+    }
+  ],
+  "asset_rule": "素材优先级：用户本地录屏 > 官方实机片段 > 官方预告 > 官方截图 > 官方文章配图。不能用黑场、logo 卡、纯片头。"
+}

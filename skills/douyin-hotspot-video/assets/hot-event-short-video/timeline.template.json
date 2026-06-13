@@ -1,0 +1,41 @@
+{
+  "composition": {
+    "width": 1080,
+    "height": 1920,
+    "aspect_ratio": "9:16",
+    "fps": 30,
+    "duration": 160,
+    "game_frame": {
+      "x": 48,
+      "y": 142,
+      "width": 984,
+      "height": 656,
+      "aspect_ratio": "3:2",
+      "object_fit": "contain"
+    }
+  },
+  "platform_plan": {
+    "platform": "douyin",
+    "duration_target": "60-90s",
+    "expression_type": "快报型",
+    "goal": "快速讲清楚",
+    "audience": "没了解过这个话题的人",
+    "text_style": "全程字幕 + 重点大字"
+  },
+  "segments": [
+    {
+      "id": "s0",
+      "start": 0,
+      "end": 12,
+      "topic": "最大爆点",
+      "cn_name": "官方中文名",
+      "title": "画面大标题",
+      "caption": "底部字幕",
+      "asset": "assets/hd/example.mp4",
+      "asset_type": "video",
+      "media_start": 0,
+      "audio_note": "旁白优先，原声只做低音量垫底"
+    }
+  ],
+  "rule": "先定旁白含义和时间，再切画面。旁白讲 A 时不能提前切到 B。"
+}
