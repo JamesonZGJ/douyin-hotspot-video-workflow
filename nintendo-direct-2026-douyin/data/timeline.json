@@ -1,0 +1,37 @@
+{
+  "title": "Nintendo Direct 6.10.2026 多游戏汇总 V5",
+  "duration": 159.72,
+  "canvas": "1080x1920",
+  "main_frame": "984x656 centered, horizontal Direct clips muted",
+  "audio": "assets/audio/narration-v5.mp3",
+  "voice": "zh-CN-YunxiNeural, rate +20%, pitch +2Hz",
+  "source_video": "assets/hd/source.mp4",
+  "clips_dir": "assets/clips-v2",
+  "style_reference": "参考玩游戏的阿舔公开内容的节奏：先爆点、再判断、再用玩家视角收束；不照搬具体文案。",
+  "segments": [
+    { "start": 0.0, "end": 31.48, "topic": "最大爆点：《塞尔达传说：时之笛》重制", "asset": "clip-zelda-v4.mp4", "source_start": "00:53:00" },
+    { "start": 31.5, "end": 38.81, "topic": "《王国之心4》和合集", "asset": "clip-kh4.mp4", "source_start": "00:50:20" },
+    { "start": 38.83, "end": 44.22, "topic": "鬼武者 Way of the Sword", "asset": "clip-onimusha.mp4", "source_start": "00:04:30" },
+    { "start": 44.24, "end": 54.13, "topic": "第三方阵容补强", "asset": "clip-thirdparty-ports.mp4", "source_start": "00:38:40" },
+    { "start": 54.15, "end": 59.44, "topic": "星际火狐", "asset": "clip-starfox.mp4", "source_start": "00:09:40" },
+    { "start": 59.46, "end": 63.99, "topic": "Nintendo Switch Sports Resort", "asset": "clip-sports.mp4", "source_start": "00:29:20" },
+    { "start": 64.01, "end": 67.22, "topic": "斯普拉遁 涂击队", "asset": "clip-splatoon.mp4", "source_start": "00:43:00" },
+    { "start": 67.24, "end": 76.38, "topic": "节奏天国 奇迹之星", "asset": "clip-rhythm.mp4", "source_start": "00:01:10" },
+    { "start": 76.41, "end": 98.15, "topic": "Pokémon Pokopia 免费更新与付费新增内容", "asset": "clip-pokemon.mp4", "source_start": "00:11:18" },
+    { "start": 98.17, "end": 106.4, "topic": "Xenoblade Genesis", "asset": "clip-xenoblade.mp4", "source_start": "00:26:25" },
+    { "start": 106.42, "end": 112.27, "topic": "火焰纹章新作", "asset": "clip-fireemblem.mp4", "source_start": "00:13:20" },
+    { "start": 112.29, "end": 117.01, "topic": "勇者斗恶龙 怪物仙境", "asset": "clip-dqmonsters.mp4", "source_start": "00:40:10" },
+    { "start": 117.03, "end": 120.9, "topic": "The Duskbloods", "asset": "clip-duskbloods.mp4", "source_start": "00:41:40" },
+    { "start": 120.93, "end": 126.01, "topic": "咚奇刚 蕉力全开", "asset": "clip-donkey.mp4", "source_start": "00:18:00" },
+    { "start": 126.03, "end": 132.46, "topic": "最终幻想 / Rayman / Minecraft", "asset": "clip-ff-minecraft.mp4", "source_start": "00:47:10" },
+    { "start": 132.49, "end": 139.05, "topic": "阵容厚度总结", "asset": "clip-thirdparty-ports.mp4", "source_start": "00:38:40" },
+    { "start": 139.07, "end": 159.71, "topic": "结论：王炸在前，但牌桌铺开了", "asset": "clip-release-cards.mp4", "source_start": "00:51:00" }
+  ],
+  "checks": [
+    "开头直接围绕《塞尔达传说：时之笛》重制，不再用泛泛的直面会开场。",
+    "游戏名按中文口播处理；台港官方写法另在 facts.json 保留。",
+    "补入 Pokémon Pokopia 免费更新和付费新增内容。",
+    "文案参考玩游戏的阿舔的短视频节奏：判断更靠前，表达更像玩家聊天。",
+    "输出仍为竖屏 1080x1920。"
+  ]
+}

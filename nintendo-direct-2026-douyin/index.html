@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Nintendo Direct 6.10.2026 Douyin Recap</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: #070707;
+        font-family: "Noto Sans Japanese", sans-serif;
+      }
+
+      #nintendo-direct {
+        position: relative;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: #070707;
+        color: #f8f8f8;
+      }
+
+      .bg-grid {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        opacity: 0.16;
+        pointer-events: none;
+        background-image:
+          linear-gradient(rgba(230, 0, 18, 0.12) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(230, 0, 18, 0.1) 1px, transparent 1px);
+        background-size: 64px 64px;
+      }
+
+      .red-glow {
+        position: absolute;
+        width: 760px;
+        height: 760px;
+        right: -280px;
+        top: -260px;
+        z-index: 0;
+        opacity: 0.34;
+        pointer-events: none;
+        background: radial-gradient(circle, rgba(230, 0, 18, 0.72), rgba(230, 0, 18, 0) 64%);
+      }
+
+      .media {
+        position: absolute;
+        left: 48px;
+        top: 320px;
+        width: 984px;
+        height: 656px;
+        object-fit: cover;
+        background: #050505;
+        border: 1px solid rgba(230, 0, 18, 0.3);
+        border-radius: 8px;
+        box-shadow:
+          0 24px 80px rgba(0, 0, 0, 0.56),
+          0 0 60px rgba(230, 0, 18, 0.16);
+        filter: saturate(1.05) contrast(1.03) brightness(1.02);
+        z-index: 2;
+      }
+
+      .shade {
+        position: absolute;
+        inset: 0;
+        z-index: 4;
+        pointer-events: none;
+        background:
+          linear-gradient(180deg, rgba(7, 7, 7, 0) 0%, rgba(7, 7, 7, 0.08) 44%, rgba(7, 7, 7, 0.88) 71%, #070707 100%),
+          radial-gradient(circle at 78% 22%, rgba(230, 0, 18, 0.14), rgba(230, 0, 18, 0) 34%);
+      }
+
+      .hud {
+        position: absolute;
+        top: 54px;
+        left: 48px;
+        right: 48px;
+        z-index: 14;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 24px;
+        font-weight: 800;
+        color: #f8f8f8;
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        height: 54px;
+        padding: 0 18px;
+        border: 1px solid rgba(230, 0, 18, 0.44);
+        background: rgba(7, 7, 7, 0.92);
+      }
+
+      .tag.hot {
+        color: #ff3847;
+        border-color: #ff3847;
+      }
+
+      .scene {
+        position: absolute;
+        left: 54px;
+        right: 54px;
+        top: 1028px;
+        z-index: 12;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .scene.active {
+        opacity: 1;
+      }
+
+      .eyebrow {
+        margin: 0;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 27px;
+        color: #ff3847;
+        font-weight: 900;
+        font-variant-numeric: tabular-nums;
+      }
+
+      h1,
+      h2 {
+        max-width: 930px;
+        margin: 0;
+        font-family: "Bebas Neue", "Noto Sans Japanese", sans-serif;
+        font-size: 104px;
+        line-height: 0.96;
+        letter-spacing: 0;
+        color: #f8f8f8;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        font-size: 116px;
+      }
+
+      .summary {
+        max-width: 910px;
+        margin: 0;
+        color: #f8f8f8;
+        font-size: 38px;
+        line-height: 1.22;
+        font-weight: 900;
+        text-shadow: 0 6px 30px rgba(0, 0, 0, 0.74);
+      }
+
+      .summary em,
+      .caption em {
+        color: #ff3847;
+        font-style: normal;
+      }
+
+      .caption-wrap {
+        position: absolute;
+        left: 54px;
+        right: 54px;
+        bottom: 122px;
+        z-index: 30;
+        min-height: 164px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+      }
+
+      .caption {
+        position: absolute;
+        max-width: 916px;
+        padding: 19px 28px;
+        color: #f8f8f8;
+        background: rgba(7, 7, 7, 0.88);
+        border: 1px solid rgba(230, 0, 18, 0.38);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.44);
+        font-size: 42px;
+        line-height: 1.18;
+        font-weight: 900;
+        text-align: center;
+        opacity: 0;
+      }
+
+      .ticker {
+        position: absolute;
+        left: 48px;
+        right: 48px;
+        top: 1000px;
+        z-index: 10;
+        display: flex;
+        gap: 9px;
+      }
+
+      .tick {
+        flex: 1;
+        height: 4px;
+        background: rgba(230, 0, 18, 0.18);
+        border-radius: 2px;
+      }
+
+      .tick.lit {
+        background: #ff3847;
+        box-shadow: 0 0 12px rgba(230, 0, 18, 0.5);
+      }
+
+      .wipe,
+      .wipe-red {
+        position: absolute;
+        inset: 0;
+        z-index: 24;
+        pointer-events: none;
+        transform: translateX(-115%);
+      }
+
+      .wipe {
+        background: #070707;
+      }
+
+      .wipe-red {
+        z-index: 25;
+        background: #e60012;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="nintendo-direct"
+      data-composition-id="nintendo-direct-2026"
+      data-width="1080"
+      data-height="1920"
+      data-start="0"
+      data-duration="159.72"
+    >
+      <div class="bg-grid"></div>
+      <div class="red-glow"></div>
+
+      <video id="m-zelda" class="clip media" data-start="0" data-duration="31.48" data-track-index="0" src="assets/clips-v2/clip-zelda-v4.mp4" muted playsinline></video>
+      <video id="m-kh4" class="clip media" data-start="31.5" data-duration="7.31" data-track-index="0" src="assets/clips-v2/clip-kh4.mp4" muted playsinline></video>
+      <video id="m-onimusha" class="clip media" data-start="38.83" data-duration="5.39" data-track-index="0" src="assets/clips-v2/clip-onimusha.mp4" muted playsinline></video>
+      <video id="m-thirdparty-a" class="clip media" data-start="44.24" data-duration="9.89" data-track-index="0" src="assets/clips-v2/clip-thirdparty-ports.mp4" muted playsinline></video>
+      <video id="m-starfox" class="clip media" data-start="54.15" data-duration="5.29" data-track-index="0" src="assets/clips-v2/clip-starfox.mp4" muted playsinline></video>
+      <video id="m-sports" class="clip media" data-start="59.46" data-duration="4.53" data-track-index="0" src="assets/clips-v2/clip-sports.mp4" muted playsinline></video>
+      <video id="m-splatoon" class="clip media" data-start="64.01" data-duration="3.21" data-track-index="0" src="assets/clips-v2/clip-splatoon.mp4" muted playsinline></video>
+      <video id="m-rhythm" class="clip media" data-start="67.24" data-duration="9.14" data-track-index="0" src="assets/clips-v2/clip-rhythm.mp4" muted playsinline></video>
+      <video id="m-pokemon" class="clip media" data-start="76.41" data-duration="21.74" data-track-index="0" src="assets/clips-v2/clip-pokemon.mp4" muted playsinline></video>
+      <video id="m-xenoblade" class="clip media" data-start="98.17" data-duration="8.23" data-track-index="0" src="assets/clips-v2/clip-xenoblade.mp4" muted playsinline></video>
+      <video id="m-fireemblem" class="clip media" data-start="106.42" data-duration="5.85" data-track-index="0" src="assets/clips-v2/clip-fireemblem.mp4" muted playsinline></video>
+      <video id="m-dq" class="clip media" data-start="112.29" data-duration="4.72" data-track-index="0" src="assets/clips-v2/clip-dqmonsters.mp4" muted playsinline></video>
+      <video id="m-duskbloods" class="clip media" data-start="117.03" data-duration="3.87" data-track-index="0" src="assets/clips-v2/clip-duskbloods.mp4" muted playsinline></video>
+      <video id="m-donkey" class="clip media" data-start="120.93" data-duration="5.08" data-track-index="0" src="assets/clips-v2/clip-donkey.mp4" muted playsinline></video>
+      <video id="m-ff" class="clip media" data-start="126.03" data-duration="6.43" data-track-index="0" src="assets/clips-v2/clip-ff-minecraft.mp4" muted playsinline></video>
+      <video id="m-thirdparty-b" class="clip media" data-start="132.49" data-duration="6.56" data-track-index="0" src="assets/clips-v2/clip-thirdparty-ports.mp4" muted playsinline></video>
+      <video id="m-close" class="clip media" data-start="139.07" data-duration="20.64" data-track-index="0" src="assets/clips-v2/clip-release-cards.mp4" muted playsinline></video>
+
+      <audio id="narration" data-start="0" data-duration="159.72" data-track-index="10" src="assets/audio/narration-v5.mp3" data-volume="1"></audio>
+
+      <div class="shade"></div>
+      <div class="ticker">
+        <div class="tick lit"></div><div class="tick lit"></div><div class="tick lit"></div>
+        <div class="tick lit"></div><div class="tick lit"></div><div class="tick lit"></div>
+        <div class="tick lit"></div><div class="tick"></div><div class="tick"></div>
+      </div>
+      <div class="hud">
+        <span class="tag hot">NINTENDO DIRECT</span>
+        <span class="tag">北京时间 2026.06.10</span>
+      </div>
+
+      <section id="s0" class="scene active">
+        <p class="eyebrow">00:00 / 最大炸点</p>
+        <h1>时之笛重制</h1>
+        <p class="summary"><em>《塞尔达传说：时之笛》</em>重制，才是这场 Direct 的第一主角。</p>
+      </section>
+
+      <section id="s1" class="scene">
+        <p class="eyebrow">00:21 / 不只一张牌</p>
+        <h2>新机门面</h2>
+        <p class="summary">最大爆点是塞尔达，但后面的阵容才决定 Switch 2 能不能站稳。</p>
+      </section>
+
+      <section id="s2" class="scene">
+        <p class="eyebrow">00:31 / 第三方补课</p>
+        <h2>不只靠老任</h2>
+        <p class="summary">王国之心、鬼武者、Devil May Cry、P 的谎言、合金装备都进来了。</p>
+      </section>
+
+      <section id="s3" class="scene">
+        <p class="eyebrow">00:54 / FIRST PARTY</p>
+        <h2>第一方排队</h2>
+        <p class="summary">星际火狐、运动度假村、斯普拉遁、节奏天国，一口气补档。</p>
+      </section>
+
+      <section id="s4" class="scene">
+        <p class="eyebrow">01:16 / POKEMON POKOPIA</p>
+        <h2>宝可梦别漏</h2>
+        <p class="summary">免费更新 + 付费新增内容，海底小镇和潜水都来了。</p>
+      </section>
+
+      <section id="s5" class="scene">
+        <p class="eyebrow">01:38 / JRPG 密度</p>
+        <h2>日式 RPG 不空手</h2>
+        <p class="summary">异度、火焰纹章、勇者斗恶龙怪物仙境，类型玩家有东西玩。</p>
+      </section>
+
+      <section id="s6" class="scene">
+        <p class="eyebrow">01:57 / 中段消息</p>
+        <h2>不是压轴但有用</h2>
+        <p class="summary">The Duskbloods、咚奇刚、最终幻想、Rayman、Minecraft 补厚度。</p>
+      </section>
+
+      <section id="s7" class="scene">
+        <p class="eyebrow">02:19 / 最后判断</p>
+        <h2>王炸在前</h2>
+        <p class="summary">时之笛是最大爆点，阵容厚度才是这场 Direct 的第二层信息。</p>
+      </section>
+
+      <section id="s8" class="scene">
+        <p class="eyebrow">02:33 / 评论区会吵</p>
+        <h2>但牌变多了</h2>
+        <p class="summary">有人嫌老 IP 多，有人觉得第三方终于像样，但这次确实不薄了。</p>
+      </section>
+
+      <div id="captions" class="caption-wrap" aria-hidden="true"></div>
+
+      <div id="wipe" class="wipe"></div>
+      <div id="wipe-red" class="wipe-red"></div>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+
+      const captions = [
+        [0.1, 6.664, "兄弟们，这场任天堂直面会最大的炸点，肯定就是<em>《塞尔达传说：时之笛》重制</em>。"],
+        [6.614, 9.468, "这不是随便拿个老游戏出来炒冷饭。"],
+        [9.468, 14.416, "这是任天堂把 N64 时代最有分量的一张牌，直接拍在 Switch 2 桌上了。"],
+        [14.416, 17.02, "二零二六年发售，Switch 2 独占。"],
+        [17.02, 21.218, "这四个字一出来，想买新机的人，又多了一个很难拒绝的理由。"],
+        [21.218, 25.406, "但这场有意思的地方在于，它不是只靠《时之笛》撑门面。"],
+        [25.406, 29.239, "后面任天堂补的那一串游戏，明显是在回答一个问题："],
+        [29.239, 31.499, "Switch 2 到底有没有游戏玩？"],
+        [31.499, 33.27, "第三方这次就很关键。"],
+        [33.27, 38.833, "<em>《王国之心4》</em>确认登陆 Switch 2，《王国之心》合集十月八日也跟上。"],
+        [38.833, 44.239, "卡普空给了<em>《鬼武者 Way of the Sword》</em>和《Devil May Cry 5 Devil Hunter Edition》。"],
+        [44.239, 50.343, "<em>《P 的谎言 完整版》</em>也来了，《合金装备 大师合集 第二卷》也排上了。"],
+        [50.343, 54.145, "这就不是“意思意思”的名单了，这是在把主机阵容往厚了补。"],
+        [54.145, 55.562, "第一方也没闲着。"],
+        [55.562, 59.458, "<em>《星际火狐》</em>六月二十五日发售，还直接给试玩版。"],
+        [59.458, 64.01, "<em>《Nintendo Switch Sports Resort》</em>十月二十二日发售，重回乌胡岛。"],
+        [64.01, 67.239, "<em>《斯普拉遁 涂击队》</em>七月二十三日发售。"],
+        [67.239, 70.489, "<em>《节奏天国 奇迹之星》</em>七月二日发售。"],
+        [70.489, 76.406, "你可能不会每一款都买，但任天堂很懂，它总能给不同玩家塞一款“刚好想玩”的东西。"],
+        [76.406, 78.708, "还有宝可梦这段，不能漏。"],
+        [78.708, 84.583, "<em>《Pokémon Pokopia》</em>八月有免费更新，百变怪可以学会潜水，地图直接往海底扩。"],
+        [84.583, 92.427, "同一段还公布了付费新增内容 Expansion Pass，第一弹就是海底小镇，后面还会加新区域、新家具和新服装。"],
+        [92.427, 98.166, "这个对轻量玩家很重要，因为它代表 Switch 2 上的常驻型游戏，也会持续喂内容。"],
+        [98.166, 100.999, "日式 RPG 玩家这次也不空手。"],
+        [100.999, 106.416, "<em>《Xenoblade Genesis》</em>定在二零二七年，前三作也会陆续出 Switch 2 Edition。"],
+        [106.416, 112.291, "火焰纹章新作九月十七日发售，<em>《勇者斗恶龙 怪物仙境》</em>十二月三日发售。"],
+        [112.291, 117.031, "这几款一摆出来，JRPG 玩家至少不用担心新机第一年太空。"],
+        [117.031, 120.927, "中段还有 FromSoftware 的<em>《The Duskbloods》</em>封闭测试。"],
+        [120.927, 126.031, "<em>《咚奇刚 蕉力全开》</em>的 DK Challenge，还有“DK 岛＆绿宝石淘金”活动。"],
+        [126.031, 132.489, "再加上《最终幻想 Resonance》《Rayman Legends Retold》和《Minecraft》视觉增强版。"],
+        [132.489, 139.072, "这些单个看可能不是最大王炸，但堆在一起，就是 Switch 2 现在最需要的东西：厚度。"],
+        [139.072, 141.427, "所以这场 Direct 我的结论很简单。"],
+        [141.427, 145.145, "<em>《塞尔达传说：时之笛》重制</em>，是最大爆点。"],
+        [145.145, 149.958, "但真正值得注意的是，任天堂终于开始给 Switch 2 铺游戏表了。"],
+        [149.958, 153.229, "情怀有，第一方有，第三方也终于像样了。"],
+        [153.229, 159.708, "你可以说它还是老 IP 多，但至少这次，任天堂不是只递了一张牌，而是把牌桌铺开了。"]
+      ];
+
+      const captionWrap = document.querySelector("#captions");
+      captions.forEach((caption, index) => {
+        const div = document.createElement("div");
+        div.id = "cap" + index;
+        div.className = "caption";
+        div.innerHTML = caption[2];
+        captionWrap.appendChild(div);
+      });
+
+      const tl = gsap.timeline({ paused: true });
+      const scenes = ["#s0", "#s1", "#s2", "#s3", "#s4", "#s5", "#s6", "#s7", "#s8"];
+      const starts = [0, 21.218, 31.499, 54.145, 76.406, 98.166, 117.031, 139.072, 153.229];
+
+      function addFrom(selector, vars, at) {
+        const nodes = document.querySelectorAll(selector);
+        if (nodes.length > 0) {
+          tl.from(nodes, vars, at);
+        }
+      }
+
+      function enterScene(selector, at) {
+        addFrom(selector + " .eyebrow", { x: -28, opacity: 0, duration: 0.32, ease: "expo.out" }, at + 0.16);
+        addFrom(selector + " h1, " + selector + " h2", { y: 62, opacity: 0, scale: 0.95, duration: 0.48, ease: "back.out(1.25)" }, at + 0.24);
+        addFrom(selector + " .summary", { y: 34, opacity: 0, duration: 0.36, ease: "power3.out" }, at + 0.5);
+      }
+
+      function transition(prev, next, at) {
+        tl.set("#wipe", { x: "-115%" }, at);
+        tl.set("#wipe-red", { x: "-120%" }, at);
+        tl.to("#wipe", { x: "0%", duration: 0.14, ease: "power4.inOut", overwrite: "auto" }, at);
+        tl.to("#wipe-red", { x: "0%", duration: 0.13, ease: "expo.inOut", overwrite: "auto" }, at + 0.03);
+        tl.set(prev, { opacity: 0 }, at + 0.18);
+        tl.set(next, { opacity: 1 }, at + 0.18);
+        tl.to("#wipe", { x: "112%", duration: 0.22, ease: "power4.inOut", overwrite: "auto" }, at + 0.19);
+        tl.to("#wipe-red", { x: "118%", duration: 0.2, ease: "expo.inOut", overwrite: "auto" }, at + 0.2);
+      }
+
+      enterScene("#s0", 0);
+      for (let i = 1; i < scenes.length; i += 1) {
+        transition(scenes[i - 1], scenes[i], starts[i] - 0.16);
+        enterScene(scenes[i], starts[i]);
+      }
+
+      captions.forEach((range, index) => {
+        const id = "#cap" + index;
+        tl.fromTo(id, { y: 24, scale: 0.97, opacity: 0 }, { y: 0, scale: 1, opacity: 1, duration: 0.16, ease: "back.out(1.6)" }, range[0]);
+        tl.to(id, { opacity: 0, scale: 0.97, duration: 0.1, ease: "power2.in" }, range[1] - 0.1);
+      });
+
+      const ambientRepeat = Math.floor(159.72 / 2.8) - 1;
+      tl.to(".bg-grid", { opacity: 0.29, duration: 1.4, repeat: ambientRepeat, yoyo: true, ease: "sine.inOut" }, 0);
+      tl.to(".red-glow", { x: 70, y: 48, opacity: 0.45, duration: 3.1, repeat: Math.floor(159.72 / 6.2) - 1, yoyo: true, ease: "sine.inOut" }, 0);
+      tl.to("#s8", { opacity: 0, duration: 0.4, ease: "power2.in" }, 159.3);
+
+      window.__timelines["nintendo-direct-2026"] = tl;
+    </script>
+  </body>
+</html>

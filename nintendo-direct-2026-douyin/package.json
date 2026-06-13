@@ -1,0 +1,13 @@
+﻿{
+  "name": "nintendo-direct-2026-douyin",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "set PATH=%CD%\\..\\node_modules\\ffmpeg-static;%CD%\\..\\node_modules\\ffprobe-static\\bin\\win32\\x64;%PATH%&& npx --yes hyperframes@0.6.69 preview",
+    "lint": "set PATH=%CD%\\..\\node_modules\\ffmpeg-static;%CD%\\..\\node_modules\\ffprobe-static\\bin\\win32\\x64;%PATH%&& npx --yes hyperframes@0.6.69 lint",
+    "validate": "set PATH=%CD%\\..\\node_modules\\ffmpeg-static;%CD%\\..\\node_modules\\ffprobe-static\\bin\\win32\\x64;%PATH%&& npx --yes hyperframes@0.6.69 validate",
+    "inspect": "set PATH=%CD%\\..\\node_modules\\ffmpeg-static;%CD%\\..\\node_modules\\ffprobe-static\\bin\\win32\\x64;%PATH%&& npx --yes hyperframes@0.6.69 inspect",
+    "check": "npm run lint && npm run validate && npm run inspect",
+    "render": "set PATH=%CD%\\..\\node_modules\\ffmpeg-static;%CD%\\..\\node_modules\\ffprobe-static\\bin\\win32\\x64;%PATH%&& npx --yes hyperframes@0.6.69 render"
+  }
+}

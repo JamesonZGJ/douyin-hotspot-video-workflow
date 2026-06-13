@@ -1,0 +1,43 @@
+{
+  "event": {
+    "name": "Nintendo Direct 6.9.2026",
+    "cn_date": "2026-06-10",
+    "us_date": "2026-06-09",
+    "sources": [
+      "https://www.nintendo.com/us/whatsnew/nintendo-direct-unveils-new-games-and-updates-for-nintendo-switch-2-and-nintendo-switch-including-the-legend-of-zelda-ocarina-of-time-kingdom-hearts-iv-xenoblade-genesis-and-more/",
+      "https://www.nintendo.com/tw/topics"
+    ]
+  },
+  "headline": "这场直面会最大的炸点是《塞尔达传说：时之笛》重制，但真正的重点是 Switch 2 阵容开始变厚。",
+  "style_notes": [
+    "文案参考玩游戏的阿舔的短视频节奏：先爆点，再判断，再用玩家视角收束；不照搬具体句子。",
+    "口播使用中文和玩家熟悉叫法；台港官方写法保留在 official_tw 字段。",
+    "宝可梦段必须保留，因为《Pokémon Pokopia》同时公布了免费更新和付费新增内容。"
+  ],
+  "comment_analysis": [
+    "评论区容易分成三类：时之笛情怀党、第三方阵容党、老 IP 过多质疑党。",
+    "这条视频主线不做流水账，而是讲 Switch 2 的阵容厚度。"
+  ],
+  "facts": [
+    { "cn": "塞尔达传说：时之笛", "official_tw": "薩爾達傳說 時之笛", "release": "2026", "points": ["重制回归", "Nintendo Switch 2 独占"] },
+    { "cn": "王国之心4", "official": "KINGDOM HEARTS IV", "points": ["确认登陆 Nintendo Switch 2"] },
+    { "cn": "王国之心 合集", "official": "KINGDOM HEARTS Collection [I~III]", "release": "2026-10-08", "points": ["一到三代合集", "云版玩家可折扣购买 Switch 2 版本"] },
+    { "cn": "鬼武者 Way of the Sword", "official": "鬼武者Way of the Sword", "release": "2026-09-25", "points": ["Capcom 剑斗动作游戏", "登陆 Nintendo Switch 2"] },
+    { "cn": "Devil May Cry 5 Devil Hunter Edition", "release": "2026-06-23", "points": ["Nintendo Switch 2 版本"] },
+    { "cn": "P 的谎言 完整版", "official": "Lies of P: Complete Edition", "release": "2026-08-06", "points": ["含 Overture 扩展", "Nintendo Switch 2"] },
+    { "cn": "合金装备 大师合集 第二卷", "official": "METAL GEAR SOLID: MASTER COLLECTION Vol. 2", "release": "2026-08-27", "points": ["Switch 2 / Switch"] },
+    { "cn": "星际火狐", "official_tw": "Star Fox (星際火狐)", "release": "2026-06-25", "points": ["体验版发布中", "Nintendo Switch 2"] },
+    { "cn": "Nintendo Switch Sports Resort", "release": "2026-10-22", "points": ["回到乌胡岛", "12 种运动项目"] },
+    { "cn": "斯普拉遁 涂击队", "official_tw": "斯普拉遁 塗擊隊", "release": "2026-07-23", "points": ["Nintendo Switch 2"] },
+    { "cn": "节奏天国 奇迹之星", "official_tw": "節奏天國 奇蹟之星", "release": "2026-07-02", "points": ["下载版接受预购"] },
+    { "cn": "Pokémon Pokopia", "release": "2026-08 update", "points": ["免费更新", "付费新增内容", "百变怪学会潜水", "海底小镇内容"] },
+    { "cn": "Xenoblade Genesis", "release": "2027", "points": ["系列新作", "前三作陆续有 Switch 2 Edition"] },
+    { "cn": "火焰纹章新作", "official": "Fire Emblem: Fortune's Weave", "release": "2026-09-17", "points": ["Nintendo Switch 2"] },
+    { "cn": "勇者斗恶龙 怪物仙境", "official": "DRAGON QUEST MONSTERS: The Withered World", "release": "2026-12-03", "points": ["怪物收集与合成"] },
+    { "cn": "The Duskbloods", "release": "2026", "points": ["FromSoftware 多人动作游戏", "封闭网络测试"] },
+    { "cn": "咚奇刚 蕉力全开", "official_tw": "咚奇剛 蕉力全開", "points": ["DK Challenge", "DK岛＆绿宝石淘金活动"] },
+    { "cn": "最终幻想 Resonance", "official": "FINAL FANTASY RESONANCE", "points": ["HD-2D Final Fantasy"] },
+    { "cn": "Rayman Legends Retold", "points": ["平台动作重制"] },
+    { "cn": "Minecraft", "points": ["Switch 2 视觉增强版"] }
+  ]
+}
